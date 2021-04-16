@@ -21,7 +21,7 @@ const app = express()
   }))
 
   const userRoutes = require("./src/routes/index");
-  app.use("/trial",userRoutes);
+  app.use("/virtualcorp",userRoutes);
 
 
   const port = process.env.PORT || 8000;
@@ -29,6 +29,6 @@ const app = express()
 
 // Express Server 
 const server = app.listen(port, () => {
-    console.log(`Server is running on\n base URL: http://localhost:${port}/trial`);
+    console.log(`Server is running on\n base URL: http://localhost:${port}/virtualcorp`);
   });
   
