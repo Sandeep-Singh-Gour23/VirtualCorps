@@ -1,6 +1,6 @@
 
 exports.up = function(knex) {
-    return knex.schema.createTable("user",function(table){
+    return knex.schema.createTable("employee",function(table){
         table.string("id").defaultTo(knex.raw("uuid_generate_v4()")).primary();
         table.string("fullName");
         table.string("email").notNullable().unique();
