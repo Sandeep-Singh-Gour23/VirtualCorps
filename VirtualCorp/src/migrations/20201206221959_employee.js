@@ -1,10 +1,14 @@
 
 exports.up = function(knex) {
     return knex.schema.createTable("employee",function(table){
-        table.string("id").defaultTo(knex.raw("uuid_generate_v4()")).primary();
+        table.increments("empId").unique();
         table.string("fullName");
+        table.string("address");
+        table.bigInteger("contactNumber");
         table.string("email").notNullable().unique();
         table.string("password").notNullable();
+        table.string("role").notNullable();
+        table.string("empTech");
         table.string("image").defaultTo("https://www.securityindustry.org/wp-content/uploads/sites/3/2018/05/noimage.png");
          
         table.timestamps(false, true);
@@ -13,5 +17,5 @@ exports.up = function(knex) {
 };
 
 exports.down = function(knex) {
-    return knex.schema.dropTableIfExists("user");
+    return knex.schema.dropTableIfExists("employee");
 };
