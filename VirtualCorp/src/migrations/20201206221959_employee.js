@@ -9,6 +9,7 @@ exports.up = function(knex) {
         table.string("password").notNullable();
         table.string("role").notNullable();
         table.string("empTech");
+        table.boolean("isAssigned").defaultTo(false);
         table.string("image").defaultTo("https://www.securityindustry.org/wp-content/uploads/sites/3/2018/05/noimage.png");
          
         table.timestamps(false, true);
