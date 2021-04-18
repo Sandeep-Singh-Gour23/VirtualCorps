@@ -2,7 +2,7 @@
 exports.up = function(knex) {
     return knex.schema.createTable("employee",function(table){
         table.increments("empId").unique();
-        table.string("fullName");
+        table.string("fullName").notNullable();
         table.string("address");
         table.bigInteger("contactNumber");
         table.string("email").notNullable().unique();

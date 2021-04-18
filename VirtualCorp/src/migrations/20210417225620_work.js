@@ -2,7 +2,7 @@
 exports.up = function(knex) {
     return knex.schema.createTable("project",function(table){
         table.uuid("projectId").defaultTo(knex.raw("uuid_generate_v4()")).primary();
-        table.string("projectName");
+        table.string("projectName").notNullable().unique();
         table.text("description");
         table.string("subDescription");
         table.string("projectStatus").defaultTo("not assigned");
@@ -10,9 +10,28 @@ exports.up = function(knex) {
 
         table.timestamps(false, true);
 
+    }).createTable("task",function(table){
+        table.uuid("taskId").defaultTo(knex.raw("uuid_generate_v4()")).primary();
+        table.text("taskDescription");
+        table.string("taskType").notNullable();
+        table.string("status").defaultTo("not assigned");
+        table.integer("createdBy").references("empId").inTable("employee").onDelete("CASCADE");
+        table.integer("assignedTo").references("teamId").inTable("teamDetails").onDelete("CASCADE");
+
+        table.timestamps(false,true);
+    }).createTable("meetingSchedule",function(table){
+        table.uuid("meetId").defaultTo(knex.raw("uuid_generate_v4()")).primary();
+        table.string("meetDate").notNullable();
+        table.string("meetTime").notNullable();
+        table.integer("scheduleBy").references("empId").inTable("employee").onDelete("CASCADE");
+        table.integer("scheduleFor").references("teamId").inTable("teamDetails").onDelete("CASCADE");
+
+        table.timestamps(false,true);
     })
 };
 
 exports.down = function(knex) {
-  
+    knex.schema.dropTableIfExists("project");
+    knex.schema.dropTableIfExists("task");
+    knex.schema.dropTableIfExists("meetingSchedule");
 };
