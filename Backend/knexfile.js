@@ -7,7 +7,7 @@ module.exports = {
     client: 'pg',
     useNullAsDefault: true,
     migrations: {
-      directory: './src/migrations'     // Directory to migration files of the project.
+      directory: './src/migrations'     // Directory to migration files of the project...
     },
     seeds: {
       directory: './src/seeds'          // Directory to seeds files of the project.
