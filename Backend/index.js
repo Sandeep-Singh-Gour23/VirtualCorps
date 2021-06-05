@@ -1,34 +1,44 @@
 const express = require("express");
-const bodyParser  = require("body-parser");
-const cors = require("cors");
-const path = require("path");
-const  moment = require('moment');
+const bodyParser = require("body-parser");
+require('dotenv').config();
+
+//const cors = require("cors");
+//const path = require("path");
+const moment = require('moment');
+
+// Express Router Initialize
 const router = express.Router();
 
-const knexConfig = require("./knexfile");           
+// Knex and Objection dependencies.
+const knexConfig = require("./knexfile");
 const Knex = require("knex");
 const { Model } = require("objection");
-require('dotenv').config()
+
+
+// Initialize knex.
 const knex = Knex(knexConfig[process.env.NODE_ENV || 'development']);
 Model.knex(knex);
 
 const app = express()
   .use(bodyParser.json())
   .use(router)
-  .use(cors({
-    credentials: true,
-    origin: (origin, callback) => callback(null, true),
-  }))
 
-  const userRoutes = require("./src/routes/index");
-  app.use("/virtualcorp",userRoutes);
+/*.use(cors({
+  credentials: true,
+  origin: (origin, callback) => callback(null, true),
+}))*/
 
+// Import API Routes.
+const userRoutes = require("./src/routes/index");
 
-  const port = process.env.PORT || 8000;
-  console.log("moment object : - ",moment());
+// Add routes as middleware.
+app.use("/virtualcorp", userRoutes);
+
+// Port for Server
+const port = process.env.PORT || 8000;
+console.log("moment object : - ", moment());
 
 // Express Server 
-const server = app.listen(port, () => {
-    console.log(`Server is running on\n base URL: http://localhost:${port}/virtualcorp`);
-  });
-  
+app.listen(port, () => {
+  console.log(`Server is running on\n base URL: http://localhost:${port}/virtualcorp`);
+});

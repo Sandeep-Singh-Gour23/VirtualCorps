@@ -13,7 +13,7 @@ function VerifyUserJWT(req, res, next) {
     }
 
     req.user=users;
-//console.log("user details//"+users.accHash)
+//console.log("user details//"+req.user.email);
     
 
     next();

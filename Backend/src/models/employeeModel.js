@@ -12,7 +12,6 @@ class Employee extends Model {
  
   static get relationMappings(){
     const Project=require("./projectModel");
-    const Employee=require("./employeeModel");
     const Task=require("./taskModel");
     const TeamDetails=require("./teamDetailsModel");
     const Meeting=require("./meetingSchedule");
