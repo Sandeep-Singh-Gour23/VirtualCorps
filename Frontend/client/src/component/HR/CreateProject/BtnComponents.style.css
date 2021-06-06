@@ -103,7 +103,13 @@
     font-style: italic;
   }
   .description{
-    
+    font-size: 16px;
+    padding:0.2%;
+  }
+  .sub-description{
+    font-size: 14px;
+    padding: 0.3%;
+    line-height: normal;
   }
   /*--------------------------------------Submit button-------------------------------------*/
   .button-1{

@@ -24,7 +24,7 @@ function Button(props){
             <h2 className="box-title">{props.title}</h2>
 
             <p className="des-title">Description-</p>
-            <h3 className="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h3><br></br>
+            <h3 className="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h3><br/>
 
             <p className="des-title">Sub-description</p>
             <h3 className="sub-description">Lorem ipsum dolor sit amet consectetur adipisicing elit.

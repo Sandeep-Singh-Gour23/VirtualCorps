@@ -9,7 +9,7 @@ function App() {
   return (
     <>
     <Navbar />
-    {/* <h2 className="heading">Project Assignment</h2>
+    <h2 className="heading">Project Assignment</h2>
     <div className="container">
         <Button props title="Project 1" />  
         <Button props title="Project 2" />
@@ -18,11 +18,11 @@ function App() {
         <Button props title="Project 5" />
         <Button props title="Project 6" />
         <Button props title="Project 7" />
-    </div>  */}
-     {/* <span className="showMore">Show More</span> */}
-    {/* <Form /> */}
-    {/* <MemForm /> */}
-    <Profile />
+    </div>  
+     {/* <span className="showMore">Show More</span>
+    <Form /> */}
+    {/* { /* <MemForm /> */}
+    {/* <Profile /> */}
     </>
   );
 }
