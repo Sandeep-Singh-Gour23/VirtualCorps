@@ -1,7 +1,7 @@
 import React,{useState} from "react"
 import Modal from "react-modal"
 import Select from "react-select"
-import '../../../index.css'
+import './BtnComponents.style.css'
 
 
 function Button(props){
@@ -19,9 +19,9 @@ function Button(props){
       </div>
          
         <Modal isOpen={modalIsOpen} onRequestClose={()=>setModalIsOpen(false)} shouldCloseOnOverlayClick={true} style={{overlay:{backgroundColor:'#868686'}}}>
-        <div className="card">
+        <div className="box">
         <button className="closeBtn" onClick={() => setModalIsOpen(false)}>X</button>
-            <h2 className="card-title">{props.title}</h2>
+            <h2 className="box-title">{props.title}</h2>
 
             <p className="des-title">Description-</p>
             <h3 className="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h3><br></br>
