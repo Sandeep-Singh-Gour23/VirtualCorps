@@ -5,7 +5,7 @@ import CreateProj from './CreateProj';
 import validate from './ValidateCreateProject.js'
 
 const cpFormSubmit = ({submitForm2}) => {
-    const { handleChange, handleSubmit, values, errors, handleClick } = CreateProj(
+    const { handleChange, handleSubmit2, values, errors, handleClick } = CreateProj(
         submitForm2,
         validate
       );
@@ -88,7 +88,7 @@ const cpFormSubmit = ({submitForm2}) => {
     return (
         <>
           <div className="form-content-right">
-            <form onSubmit={handleSubmit} className='form' noValidate>
+            <form onSubmit={handleSubmit2} className='form' noValidate>
                 <input type="text"
                         placeholder="Enter Team Name"
                         className="form-input"

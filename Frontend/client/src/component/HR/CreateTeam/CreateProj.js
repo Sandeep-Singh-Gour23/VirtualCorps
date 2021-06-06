@@ -52,9 +52,8 @@ const CreateProj = (callback, validate) => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit2 = e => {
     e.preventDefault();
-
     setErrors(validate(values));
     setIsSubmitting(true);
   };
@@ -62,13 +61,13 @@ const CreateProj = (callback, validate) => {
   useEffect(
     () => {
       if (Object.keys(errors).length === 0 && isSubmitting) {
-        // callback();
+        callback();
       }
     },
     [errors]
   );
 
-  return { handleChange, handleSubmit, values, errors, handleClick };
+  return { handleChange, handleSubmit2, values, errors, handleClick };
 };
 
 export default CreateProj;

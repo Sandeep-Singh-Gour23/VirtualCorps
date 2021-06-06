@@ -122,7 +122,8 @@ const FormSubmit = ({submitForm}) => {
                 {errors.password && <p>{errors.password}</p>}   
                 <br />
 
-                <Select value={values.roleValue} 
+                <Select 
+                    value={values.setRoleValue} 
                     className="drop-down" 
                     name="roleValue"
                     onClick={(setRoleValue) => handleClick('roles', values)}

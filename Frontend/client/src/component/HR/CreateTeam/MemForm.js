@@ -5,7 +5,7 @@ import "../../../Styles/form.css";
 import SelectingTeam from "../../../images/undraw_Selecting_team_re_ndkb.svg";
 
 const MemForm = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+    const [isSubmitted, setIsSubmitted] = useState(false);
 
   function submitForm2() {
     setIsSubmitted(true);
