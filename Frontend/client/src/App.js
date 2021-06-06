@@ -1,12 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
-import Navbar from './component/NavBar'
-import Button from './component/HR/CreateProject/BtnComponent'
+import './component/Team Member/profile.style.css'
+import 'rsuite/dist/styles/rsuite-default.css';
+import Form from './component/HR/CreateMember/Form'
+import Button from './component/HR/AssignProject/BtnComponent'
+import Profile from './component/Team Member/Profile'
+import MemForm from './component/HR/CreateTeam/MemForm'
 
 function App() {
   return (
     <>
-    <Navbar />
+   {/* <Navbar /> */}
+   { /*
     <h2 className="heading">Project Assignment</h2>
     <div className="container">
         <Button props title="Project 1" />  
@@ -16,10 +20,11 @@ function App() {
         <Button props title="Project 5" />
         <Button props title="Project 6" />
         <Button props title="Project 7" />
-    </div> 
+    </div>   */}
      {/* <span className="showMore">Show More</span> */}
     {/* <Form /> */}
-    {/* <MemForm /> */}
+     <MemForm />
+    {/* <Profile /> */}
     </>
   );
 }
