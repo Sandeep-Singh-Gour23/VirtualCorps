@@ -1,8 +1,21 @@
 const express = require("express");
 const router  = express.Router();
 const UserAuthController=require("../controllers/index").UserAuthController;
+const HrController=require("../controllers/index").HrController
 
 const VerifyUserJWT=require("../middleware/jwt").VerifyUserJWT;
+
+//AUTHENTICATION routes
+router.post('/signup',UserAuthController.SignUp);
+router.post('/login',UserAuthController.Login);
+router.post('/changeuserpassword',VerifyUserJWT,UserAuthController.ChangePassword);
+
+
+// HR Controllers route
+router.post('/createProject',VerifyUserJWT,HrController.CreateProject);
+
+
+
 
 //CHECK ROUTES
 router.get("/check",VerifyUserJWT,(req,res)=>{
@@ -18,15 +31,6 @@ res.send("Welcome ! Everything is perfectly setUp")
     res.send("Welcome ! Heroku deployement is perfectly done")
 });*/
 
-
-//AUTHENTICATION routes
-router.post('/signup',UserAuthController.SignUp);
-router.post('/login',UserAuthController.Login);
-router.post('/changeuserpassword',VerifyUserJWT,UserAuthController.ChangePassword);
-
-router.get("/",(req,res)=>{
-    res.send("Welcome ! Everything is perfectly done")
-});
 
 
 module.exports = router;
