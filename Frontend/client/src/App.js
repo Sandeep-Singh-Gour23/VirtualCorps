@@ -22,8 +22,8 @@ function App() {
         <Button props title="Project 7" />
     </div>   */}
      {/* <span className="showMore">Show More</span> */}
-    {/* <Form /> */}
-     <MemForm />
+    <Form />
+     {/* <MemForm /> */}
     {/* <Profile /> */}
     </>
   );
