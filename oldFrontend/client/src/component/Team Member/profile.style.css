@@ -1,0 +1,22 @@
+.icon-group{
+    position: relative;
+    top: 65%;
+    margin-left: 15%;
+}
+
+.chat{
+    font-size: medium;
+    color:#163172;
+}
+
+Button .notice{
+   color: #163172;
+   font-size: medium;
+}
+.notice:hover{
+    color: rgb(78, 147, 238);
+}
+.project-card{
+    margin-top: 5%;
+    width: 50%;
+}

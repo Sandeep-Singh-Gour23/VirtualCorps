@@ -17,6 +17,8 @@
     "react-scripts": "4.0.3",
     "react-select": "^4.3.0",
     "rsuite": "^4.10.2",
+    "bootstrap": "^4.6.0",
+    "material-ui-icons": "^1.0.0-beta.36",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
