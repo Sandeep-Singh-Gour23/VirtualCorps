@@ -3,10 +3,11 @@ import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
 import PermIdentityRoundedIcon from '@material-ui/icons/PermIdentityRounded';
 import PhoneAndroidOutlinedIcon from '@material-ui/icons/PhoneAndroidOutlined';
 import AlternateEmailOutlinedIcon from '@material-ui/icons/AlternateEmailOutlined';
-import Coding from '../../images/undraw_Coding_re_iv62.svg'
+import Coding from '../Image/undraw_Coding_re_iv62.svg'
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import { Row, Col, Button ,Icon, Drawer } from 'rsuite'
 import TaskStatus from './TaskStatus';
+import './profile.style.css'
 
 const Profile = () => {
 
