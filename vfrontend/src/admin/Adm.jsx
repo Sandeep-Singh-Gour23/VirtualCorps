@@ -80,7 +80,7 @@ const Adm = () => {
   <div class="card-deck">
     <div class="card shadow p-3 mb-5 bg-white rounded " xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
-     <center> <h3 class="card-title">HR ROLE</h3>
+     <center> <h3 class="card-title" style={{color:'black'}}>HR ROLE</h3>
       <div class="card-deck">
     <div class="card shadow p-3 mb-5  rounded " style={{ backgroundColor: '#ff7800'  }} xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
@@ -115,7 +115,7 @@ const Adm = () => {
 
   <div class="card shadow p-3 mb-5 bg-white rounded " xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
-    <center>  <h3 class="card-title">PROJECT MANAGER</h3>
+    <center>  <h3 class="card-title" style={{color:'black'}}>PROJECT MANAGER</h3>
       <div class="card-deck">
       <div class="card shadow p-3 mb-5  rounded " style={{ backgroundColor: '#ff7800'  }} xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
