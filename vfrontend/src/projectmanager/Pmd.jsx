@@ -6,16 +6,87 @@ import assign from './images/pma.png';
 import shedule from './images/pms.jpg';
 import meet from './images/pmm.jpg';
 import pdetail from './images/pmd.png';
-import {Modal,Button,Row,Col,DropdownButton,Dropdown} from 'react-bootstrap';
+import {Button,Row,Col,DropdownButton,Dropdown} from 'react-bootstrap';
 import './Pmd.css';
+import M from "./SimpleModal"
+// import { makeStyles } from '@material-ui/core/styles';
+// import Modal from '@material-ui/core/Modal';
+
+
+// function rand() {
+//   return Math.round(Math.random() * 20) - 10;
+// }
+
+// function getModalStyle() {
+//   const top = 50 + rand();
+//   const left = 50 + rand();
+
+//   return {
+//     top: `${top}%`,
+//     left: `${left}%`,
+//     transform: `translate(-${top}%, -${left}%)`,
+//   };
+// }
+
+// const useStyles = makeStyles((theme) => ({
+//   paper: {
+//     position: 'absolute',
+//     width: 400,
+//     backgroundColor: theme.palette.background.paper,
+//     border: '2px solid #000',
+//     boxShadow: theme.shadows[5],
+//     padding: theme.spacing(2, 4, 3),
+//   },
+// }));
+
 
 const Pmd = () => {
 
-    const [show, setShow] = useState(false);
 
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-  
+    // const [show, setShow] = useState(false);
+
+    // const handleClose = () => setShow(false);
+    // const handleShow = () => setShow(true);
+    
+  //   const [modalStyle] = React.useState(getModalStyle);
+  // const [open, setOpen] = React.useState(false);
+
+  // const handleOpen = () => {
+  //   setOpen(true);
+  // };
+
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
+
+  // const classes = useStyles();
+  // // getModalStyle is not a pure function, we roll the style only on the first render
+  // const [modalStyle] = React.useState(getModalStyle);
+  // const [open, setOpen] = React.useState(false);
+
+  // const handleOpen = () => {
+  //   setOpen(true);
+  // };
+
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
+
+  // const body = (
+  //   <div style={modalStyle} className={classes.paper}>
+  //     <h2 id="simple-modal-title">Text in a modal</h2>
+  //     <p id="simple-modal-description">
+  //       Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+  //     </p>
+  //     <SimpleModal />
+  //   </div>
+  // );
+
+
+//     const m= () =>
+// {
+//   document.getElementById('exampleModalLong').Modal('show');
+// }  
 
     return (
   <>
@@ -53,7 +124,7 @@ const Pmd = () => {
   <div class="card shadow p-3 mb-5 bg-white rounded">
     <img class="card-img-top" src= {shedule} height = "230px" alt="Card image cap"/>
     <div class="card-body">
-    <p class="card-text"><center><button type="button" class="btn btn-dark" onClick={handleShow}>Schedule Meeting</button></center></p>
+    <p class="card-text"><center><button type="button" class="btn btn-dark" >Schedule Meeting</button></center></p>
     </div>
     </div>
 
@@ -72,7 +143,7 @@ const Pmd = () => {
 
 </div>
 
-      <Modal show={show} onHide={handleClose}>
+      {/* <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Schedule Meeting</Modal.Title>
         </Modal.Header>
@@ -118,9 +189,50 @@ const Pmd = () => {
         </Modal.Footer>
       </Modal>
 
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong" onClick={m}>
+  Launch demo modal
+</button>
+
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> */}
+{/*         
+        <div>
+      <button type="button" onClick={handleOpen}>
+        Open Modal
+      </button>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="simple-modal-title"
+        aria-describedby="simple-modal-description"
+      >
+        {body}
+      </Modal>
+    </div> */}
+
+<M/>
 
 
  </>
+
     );
   }
   
