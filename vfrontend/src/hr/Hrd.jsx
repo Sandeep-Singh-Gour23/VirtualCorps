@@ -31,7 +31,7 @@ const Hrd = () => {
      <div class="card shadow p-3 mb-5 bg-white rounded">
     <img class="card-img-top"  height = "230px" src={hrc} alt="Card image cap"/>
     <div class="card-body">
-      <p class="card-text"><center><button type="button" class="btn btn-dark">Create Porject</button></center></p>
+      <p class="card-text"><center><button type="button" class="btn btn-dark" >Create Porject</button></center></p>
     </div>
 
   </div>

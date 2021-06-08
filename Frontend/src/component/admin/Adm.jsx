@@ -47,7 +47,7 @@ const Adm = () => {
     <div class="card-body">
     <center>
       <h5 class="card-title">PROGRESS</h5>
-     <BarChartIcon style={{ color: '##00d084', fontSize: 50  }}/>
+     <BarChartIcon style={{ color: 'black', fontSize: 50  }}/>
      </center>
     </div>
   </div>
