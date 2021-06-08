@@ -1,0 +1,41 @@
+/* body{
+
+    background-color: white;
+} */
+.main_div{
+    /* height: ; */
+    /* width: 100px; */
+    background-color: white;
+    width: 40%;
+    height: 290px;
+
+
+
+}
+.add{
+    border-radius: 50%;
+    /* color: #F3B300; */
+    height:60px;
+    width: 60px;
+    background-color:#798CE9;;
+    border : none;
+    font-size: large;
+    color:white;
+
+}
+.in{
+    width: 70%;
+    height : 4vw;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+.in:focus {
+    outline: none ! important;
+    }
+
+.add:hover{
+    background-color:aliceblue;
+    color:#798CE9;
+
+}
