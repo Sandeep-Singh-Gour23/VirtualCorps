@@ -15,7 +15,7 @@ exports.up = function(knex) {
         table.uuid("taskId").defaultTo(knex.raw("uuid_generate_v4()")).primary();
         table.text("taskDescription");
         table.string("taskType").notNullable();
-        table.string("status").defaultTo("not assigned");
+        table.string("status").defaultTo("not assigned"); // alter this field to "Assigned"
         table.integer("createdBy").references("empId").inTable("employee").onDelete("CASCADE");
         table.uuid("assignedTo").references("teamId").inTable("teamDetails").onDelete("CASCADE");
 
