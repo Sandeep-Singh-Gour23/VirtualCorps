@@ -8,6 +8,7 @@ import Adm from './admin/Adm';
 import Form from './hr/createMember/Form'
 import MemForm from './hr/createTeam/MemForm'
 import Profile from './teamMember/Profile'
+import First from './home/First'
 
 const  App = () => {
 
@@ -15,7 +16,7 @@ const  App = () => {
 
   return (
 <>
-{/* <Pmd/> */}
+<Pmd/>
 {/* <Hrd/> */}
 {/* <Adm/> */}
     {/* <Header/>
@@ -39,7 +40,8 @@ const  App = () => {
    */}
    {/* <Form /> */}
    {/* <MemForm /> */}
-   <Profile />
+   {/* <Profile /> */}
+   {/* <First/> */}
   
 </>
   );
