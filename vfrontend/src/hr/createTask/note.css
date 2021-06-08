@@ -1,0 +1,10 @@
+.note_div{
+    background-color: white;
+    width:300px;
+    /* margin-right: 50px; */
+    margin-left: 90px;
+}
+
+.title{
+    text-transform: capitalize;
+}
