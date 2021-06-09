@@ -47,7 +47,7 @@ const Adm = () => {
     <div class="card-body">
     <center>
       <h5 class="card-title">PROGRESS</h5>
-     <BarChartIcon style={{ color: '##00d084', fontSize: 50  }}/>
+     <BarChartIcon style={{ color: 'black', fontSize: 50  }}/>
      </center>
     </div>
   </div>
@@ -55,7 +55,7 @@ const Adm = () => {
     <div class="card-body">
       <center>
       <h5 class="card-title" >CHAT</h5>
-     <ChatIcon style={{ color: '#00d084', fontSize: 50  }}/>
+     <ChatIcon style={{color: 'black', fontSize: 50  }}/>
      </center>
     </div>
   </div>
@@ -63,7 +63,7 @@ const Adm = () => {
     <div class="card-body">
       <center>
       <h5 class="card-title">MEET</h5>
-      <DuoIcon  style={{ color: '##00d084', fontSize: 50  }}/>
+      <DuoIcon  style={{ color: 'black', fontSize: 50  }}/>
       </center>
     </div>
   </div>
@@ -71,7 +71,7 @@ const Adm = () => {
     <div class="card-body">
     <center>
       <h5 class="card-title">MEET HISTORY</h5>
-      < HistoryIcon style={{ color: '#00d084', fontSize: 50  }}/>
+      < HistoryIcon style={{ color: 'black', fontSize: 50  }}/>
       </center>
     </div>
   </div>
@@ -80,7 +80,7 @@ const Adm = () => {
   <div class="card-deck">
     <div class="card shadow p-3 mb-5 bg-white rounded " xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
-     <center> <h3 class="card-title">HR ROLE</h3>
+     <center> <h3 class="card-title" style={{color:'black'}}>HR ROLE</h3>
       <div class="card-deck">
     <div class="card shadow p-3 mb-5  rounded " style={{ backgroundColor: '#ff7800'  }} xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
@@ -90,7 +90,7 @@ const Adm = () => {
   </div>
   <div class="card shadow p-3 mb-5 bg-white rounded " xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
-    <PeopleAltIcon  style={{  fontSize: 30  }}/>
+    <PeopleAltIcon  style={{ color: 'black', fontSize: 30  }}/>
       <h6 class="card-title">Assign Project</h6>
     </div>
   </div>
@@ -104,7 +104,7 @@ const Adm = () => {
   </div>
   <div class="card shadow p-3 mb-5 bg-white rounded " xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
-    <GroupAddIcon  style={{  fontSize: 30  }}/>
+    <GroupAddIcon  style={{ color: 'black', fontSize: 30  }}/>
       <h6 class="card-title">Create Team</h6>
     </div>
   </div>
@@ -115,7 +115,7 @@ const Adm = () => {
 
   <div class="card shadow p-3 mb-5 bg-white rounded " xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
-    <center>  <h3 class="card-title">PROJECT MANAGER</h3>
+    <center>  <h3 class="card-title" style={{color:'black'}}>PROJECT MANAGER</h3>
       <div class="card-deck">
       <div class="card shadow p-3 mb-5  rounded " style={{ backgroundColor: '#ff7800'  }} xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
@@ -127,7 +127,7 @@ const Adm = () => {
   </div>
   <div class="card shadow p-3 mb-5 bg-white rounded " xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
-    <PeopleAltIcon  style={{  fontSize: 30  }}/>
+    <PeopleAltIcon  style={{ color: 'black', fontSize: 30  }}/>
       <h6 class="card-title">Assign Project</h6>
       
     </div>
@@ -143,7 +143,7 @@ const Adm = () => {
   </div>
   <div class="card shadow p-3 mb-5 bg-white rounded " xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
-    <VideocamIcon  style={{  fontSize: 30  }}/>
+    <VideocamIcon  style={{ color: 'black', fontSize: 30  }}/>
       <h6 class="card-title">Start Meet</h6>
     </div>
   </div>

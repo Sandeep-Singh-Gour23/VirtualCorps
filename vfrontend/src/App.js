@@ -16,9 +16,9 @@ const  App = () => {
 
   return (
 <>
-<Pmd/>
+{/* <Pmd/> */}
 {/* <Hrd/> */}
-{/* <Adm/> */}
+<Adm/>
     {/* <Header/>
    
     <CN  passNote = {addNote}/>

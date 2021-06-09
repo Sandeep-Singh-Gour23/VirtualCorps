@@ -4,8 +4,6 @@ exports.up = function(knex) {
         table.uuid("teamId").defaultTo(knex.raw("uuid_generate_v4()")).primary();
         table.string("teamName").notNullable().unique();
         table.string("teamType").notNullable();
-        table.string("notification");
-        table.string("assignedProject").defaultTo("null");
         table.integer("projectManagerId").references("empId").inTable("employee").onDelete("CASCADE");
 
         table.timestamps(false, true);
