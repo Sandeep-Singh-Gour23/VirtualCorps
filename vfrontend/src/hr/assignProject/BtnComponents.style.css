@@ -1,0 +1,250 @@
+/* *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .heading{
+    text-align: center;
+    text-decoration: underline;
+    margin-top:2%;
+    font-size: 2rem;
+    letter-spacing:1%;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+  .nav-bar{
+    width: 100%;
+    height:50px;
+    padding:10px;
+    text-align: center;
+    color: aliceblue;
+    font-size: 20px;
+    background-color: #163172;
+  }
+  /*-------------------------------------Card body--------------------------------------*/
+  .box{
+    width: 50vw;
+    height:70vh;
+    border: 5px solid #163172;
+    box-shadow: 16px 15px 10px #868686;
+    border-radius: 8px solid #163172;
+    position: relative;
+    left:25%;
+    margin-top:5%;
+    background-color:#D6E4F0;
+  }
+  /*-------------------------------------Modal/card Close button----------------------------------*/
+  .closeBtn{
+    position: relative;
+    font-weight: bolder;
+    left:96%;
+    top:-2%;
+    border-radius: 0%;
+    color:#f6f6f6;
+    background-color: #163172;
+    padding:1%;
+    font-size:1.5rem;
+  }
+  .closeBtn:hover{
+    color: #163172;
+    background-color: #f6f6f6;
+    border-radius:10%;
+  }
+  /*------------------------------------------------Card title--------------------------------------*/
+  .box-title{
+    text-align: center;
+    color: #163172;
+    margin-top:3px;
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+    text-decoration: underline;
+    margin-bottom:8px;
+  }
+  /*---------------------------------------------------card-status----------------------------------------*/
+  .btn .status{
+    font-size: 12px;
+    text-transform: capitalize;
+    font-style: italic;
+    float:right;
+    margin-top:6%;
+    opacity: 1;
+    margin-right:-25%;
+    width:100%;
+    height: 100%;
+  }
+  /* .wrapper .btn .status:hover{
+    opacity: 1;
+  } */
+  /*--------------------------------------card drop-down-----------------------------------------*/
+  .drop-down2{
+    position: relative;
+    width: 48%;
+    left: 25%;
+    top:20px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  /*-------------------------------------------description/Sub-description--------------------------------------------*/
+  .head3{
+    background-color: #fff;
+    position: relative;
+    left: 10%;
+    padding: 2%;
+    width:40vw;
+    font-weight: normal;
+    border: 1px solid gray;
+  }
+  .des-title{
+    position: relative;
+    left: 10%;
+    text-decoration: underline;
+    font-size:1.2rem;
+    font-weight: bold;
+    font-style: italic;
+  }
+  .description{
+    font-size: 16px;
+    padding:0.2%;
+  }
+  .sub-description{
+    font-size: 14px;
+    padding: 0.3%;
+    line-height: normal;
+  }
+  /*--------------------------------------Submit button-------------------------------------*/
+  .button-1{
+    background: none;
+    position: relative;
+    padding: 7px;
+    top:6%;
+    letter-spacing: 2px;
+    left:42%;
+    font-size:18px;
+    border-radius: 4px;
+    outline: none;
+    border: 2px solid #163172;
+    cursor: pointer;
+    transition: 0.3s all ease-in-out;
+  }
+  .button-1:hover{
+    background: #163172;
+    color: #f6f6f6;
+  }
+  /*--------------------------------------------Project card------------------------------*/
+  .container{
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 7%;
+    margin-right: 7%;
+    padding-left: 4%;
+    padding-right: 4%;
+    margin-top: 7%;
+  }
+  .wrapper {
+    /* position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 840px; */
+    /* height:auto;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row; */
+  }
+  .wrapper .btn {
+    width:14rem;
+    height:5rem ;
+    margin: 30px 20px;
+    padding: 25px 15px;
+    text-align: center;
+    float: left;
+    cursor: pointer;
+    box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 15px 5px rgba(0,0,0,0);
+    background: #D6E4F0;
+    position: relative;
+  }
+  
+  .btn p {
+    color: black;
+    font-weight: 900;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .BorderTopBottom:before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    top: -6px;
+    left: -7px;
+    background: #163172;
+    transition: all 0.5s ease;
+  }
+  
+  .BorderTopBottom:after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    bottom: -6px;
+    right: -7px;
+    background: #163172;
+    transition: all 0.5s ease;
+  }
+  .BorderLeftRight:before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -7px;
+    width: 3px;
+    height: 25px;
+    background: #163172;
+    transition: all 0.5s ease;
+  }
+  
+  .BorderLeftRight:after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    right: -7px;
+    width: 3px;
+    height: 25px;
+    background: #163172;
+    transition: all 0.5s ease;
+  }
+  
+  .btn:hover .BorderTopBottom:before,
+  .btn:hover .BorderTopBottom:after {
+    width: 238px;
+    transition: all 0.5s ease;
+  }
+  
+  .btn:hover .BorderLeftRight:before,
+  .btn:hover .BorderLeftRight:after {
+    height: 87px;
+    transition: all 0.5s ease;
+  }
+  /*--------------------------------------show more--------------------------*/
+  .showMore{
+    float: right;
+    font-size: 18px;
+    padding-right: 10%;
+  }
+  .showMore{
+    color:#0843F4;
+    text-decoration: none;
+  }
+  .showMore::after{
+    content: '>>';
+  }
+  .showMore:hover{
+    color: #1F85DE;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+    

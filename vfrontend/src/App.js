@@ -38,8 +38,8 @@ const  App = () => {
  
     </div>
    */}
-   <Form />
-   {/* <MemForm /> */}
+   {/* <Form /> */}
+   <MemForm />
    {/* <Profile /> */}
 
 

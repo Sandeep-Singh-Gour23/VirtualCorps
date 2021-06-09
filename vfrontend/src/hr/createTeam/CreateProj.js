@@ -21,7 +21,7 @@ const CreateProj = (callback, validate) => {
   const handleClick = (field, value) => {
     switch (field) {
       case 'tType':
-        setProjectValue(projectValue)
+        setProjectValue(value)
         console.log(projectValue)
         break;
       case 'projectM':
@@ -52,9 +52,9 @@ const CreateProj = (callback, validate) => {
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit2 = e => {
+    console.log("Handle Submit2 called");
     e.preventDefault();
-
     setErrors(validate(values));
     setIsSubmitting(true);
   };
@@ -62,13 +62,13 @@ const CreateProj = (callback, validate) => {
   useEffect(
     () => {
       if (Object.keys(errors).length === 0 && isSubmitting) {
-        // callback();
+        callback();
       }
     },
     [errors]
   );
 
-  return { handleChange, handleSubmit, values, errors, handleClick };
+  return { handleChange, handleSubmit2, values, errors, handleClick };
 };
 
 export default CreateProj;
