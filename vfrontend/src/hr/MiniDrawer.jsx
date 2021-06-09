@@ -18,6 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import hr from './images/hr.png';
+import BtnComponent from './assignProject/BtnComponent'
 
 const drawerWidth = 240;
 
@@ -118,7 +119,7 @@ export default function MiniDrawer() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-          <h2 >  <img src = {hr} alt = "logo" height = "150px" width = "250px"/> Human Resources </h2>
+          {/* <h2 >  <img src = {hr} alt = "logo" height = "150px" width = "250px"/> Human Resources </h2> */}
           </Typography>
         </Toolbar>
       </AppBar>
@@ -161,7 +162,6 @@ export default function MiniDrawer() {
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-        
       </main>
     </div>
   );
