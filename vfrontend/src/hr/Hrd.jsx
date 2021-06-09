@@ -8,6 +8,8 @@ import team from './images/team.jpg';
 import hr from './images/hr.png';
 import {Modal,Button,Row,Col,DropdownButton,Dropdown} from 'react-bootstrap';
 import './Hrd.css';
+import { Link } from 'react-router-dom';
+import MiniDrawer from './MiniDrawer';
 
 const Hrd = () => {
 
@@ -20,6 +22,7 @@ const Hrd = () => {
     return (
   <>
   <div className = "header shadow-sm p-3 mb-5 rounded" >
+  
   <h2 >  <img src = {hr} alt = "logo" height = "150px" width = "250px"/> Human Resources </h2>
   </div>
 
@@ -31,7 +34,11 @@ const Hrd = () => {
      <div class="card shadow p-3 mb-5 bg-white rounded">
     <img class="card-img-top"  height = "230px" src={hrc} alt="Card image cap"/>
     <div class="card-body">
-      <p class="card-text"><center><button type="button" class="btn btn-dark" >Create Porject</button></center></p>
+      <p class="card-text"><center>
+        <Link to="/hr/createtask">
+        <button type="button" class="btn btn-dark" >Create Project</button>
+        </Link>
+        </center></p>
     </div>
 
   </div>
@@ -45,7 +52,12 @@ const Hrd = () => {
      </button>
       </Link>
       </a> */}
-    <p class="card-text"><center><button type="button" class="btn btn-dark">Assign Project </button></center></p>
+    <p class="card-text"><center>
+    <Link to='/hr/assignproject'>
+      <button type="button" class="btn btn-dark">Assign Project </button>
+      </Link>
+      </center></p>
+     
     </div>
 
   </div>
@@ -53,14 +65,23 @@ const Hrd = () => {
   <div class="card shadow p-3 mb-5 bg-white rounded">
     <img class="card-img-top" src= {team} height = "230px" alt="Card image cap"/>
     <div class="card-body">
-    <p class="card-text"><center><button type="button" class="btn btn-dark" >Create Team</button></center></p>
+    <p class="card-text"><center>
+      <Link to='/hr/createteam'>
+      <button type="button" class="btn btn-dark" >Create Team</button>
+   
+ </Link>
+      </center></p>
     </div>
     </div>
 
     <div class="card shadow p-3 mb-5 bg-white rounded">
     <img class="card-img-top" src={member} height = "230px" alt="Card image cap"/>
     <div class="card-body">
-      <p class="card-text"><center><button type="button" class="btn btn-dark">Create Member</button></center></p>
+      <p class="card-text"><center>
+      <Link to='/hr/createmember'>
+      <button type="button" class="btn btn-dark">Create Member</button>
+ </Link>
+       </center></p>
     </div>
 
 
