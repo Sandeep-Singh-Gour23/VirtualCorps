@@ -131,7 +131,7 @@ const Pmd = () => {
     <div class="card shadow p-3 mb-5 bg-white rounded">
     <img class="card-img-top" src={meet} height = "230px" alt="Card image cap"/>
     <div class="card-body">
-      <p class="card-text"><center><button type="button" class="btn btn-dark">Start Meet</button></center></p>
+    <a href="https://react-chatapp-frontend.herokuapp.com/">  <p class="card-text"><center><button type="button" class="btn btn-dark">Start Meet</button></center></p></a>
     </div>
 
 

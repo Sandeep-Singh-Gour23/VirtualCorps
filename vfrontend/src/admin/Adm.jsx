@@ -19,6 +19,7 @@ import {Modal,Button,Row,Col,DropdownButton,Dropdown} from 'react-bootstrap';
 import PersonIcon from '@material-ui/icons/Person';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import './Adm.css';
+import {Link} from 'react-router-dom';
 
 const Adm = () => {
 
@@ -82,16 +83,18 @@ const Adm = () => {
     <div class="card-body">
      <center> <h3 class="card-title" style={{color:'black'}}>HR ROLE</h3>
       <div class="card-deck">
+     
     <div class="card shadow p-3 mb-5  rounded " style={{ backgroundColor: '#ff7800'  }} xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
     <QueueIcon style={{ color: 'white', fontSize: 30  }} />
-      <h6 class="card-title" style={{ color: 'white'  }} >Create Project</h6>
+    <Link to ='hr/createtask'>  <h6 class="card-title" style={{ color: 'white'  }} >  Create Project  </h6> </Link>
     </div>
   </div>
+
   <div class="card shadow p-3 mb-5 bg-white rounded " xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
     <PeopleAltIcon  style={{ color: 'black', fontSize: 30  }}/>
-      <h6 class="card-title">Assign Project</h6>
+    <Link to = 'hr/assignproject'>  <h6 class="card-title"  style={{ color: 'black'}}>Assign Project</h6></Link>
     </div>
   </div>
   </div>
@@ -99,13 +102,13 @@ const Adm = () => {
   <div class="card shadow p-3 mb-5  rounded " style={{ backgroundColor: '#ff7800'  }} xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
     <PersonPinIcon style={{ color: 'white', fontSize: 30  }} />
-      <h6 class="card-title" style={{ color: 'white'  }} >New Member</h6>
+    <Link to ='hr/createmember'>  <h6 class="card-title" style={{ color: 'white'  }} >New Member</h6></Link>
     </div>
   </div>
   <div class="card shadow p-3 mb-5 bg-white rounded " xs={6} sm={6} md={6} lg={6}>
     <div class="card-body">
     <GroupAddIcon  style={{ color: 'black', fontSize: 30  }}/>
-      <h6 class="card-title">Create Team</h6>
+     <Link to ='hr/createteam'> <h6 class="card-title" style={{ color: 'black'}}>Create Team</h6></Link>
     </div>
   </div>
   </div>
