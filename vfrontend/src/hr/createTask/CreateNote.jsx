@@ -48,7 +48,7 @@ const  CreateNote = (props) => {
     {/* <img src = {logo} alt = "logo" height = "100px" weight = "40px"/>Create New Project */}
     <Row>
     <Col xs={5}>
-    <img class="card-img-top" src= {logo1} height = "250px" alt="Card image cap"/>
+    <img class="card-img-top " style={{borderRadius:'30% 80%'}} src= {logo1} height = "250px" alt="Card image cap"/>
     </Col>
     <Col xs={7}>
        

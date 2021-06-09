@@ -9,6 +9,9 @@ import pdetail from './images/pmd.png';
 import {Button,Row,Col,DropdownButton,Dropdown} from 'react-bootstrap';
 import './Pmd.css';
 import M from "./SimpleModal"
+import CustomizedDialogs from './CustomizedDialogs';
+import ExitToAppTwoToneIcon from '@material-ui/icons/ExitToAppTwoTone';
+import {Link} from 'react-router-dom';
 // import { makeStyles } from '@material-ui/core/styles';
 // import Modal from '@material-ui/core/Modal';
 
@@ -91,7 +94,15 @@ const Pmd = () => {
     return (
   <>
   <div className = "header shadow-sm p-3 mb-5 rounded" >
+    <Row>
+      <Col lg ={11} xm ={11} sm={11}>
   <h2 >  <img src = {logo} alt = "logo" height = "100px" width = "90px"/>  PROJECT MANAGER </h2>
+  </Col>
+  <Col lg ={1} xm ={1} sm={1}>
+    <br/>
+  <Link to="/"><button type="button" class="btn btn-light " style={{borderRadius:'90%'}}><ExitToAppTwoToneIcon/> Logout </button></Link>
+  </Col>
+  </Row>
   </div>
 
   <center> <h5>Welcome Project Manager </h5> </center>    
@@ -124,7 +135,7 @@ const Pmd = () => {
   <div class="card shadow p-3 mb-5 bg-white rounded">
     <img class="card-img-top" src= {shedule} height = "230px" alt="Card image cap"/>
     <div class="card-body">
-    <p class="card-text"><center><button type="button" class="btn btn-dark" >Schedule Meeting</button></center></p>
+    <p class="card-text"><center><CustomizedDialogs/></center></p>
     </div>
     </div>
 
@@ -228,7 +239,7 @@ const Pmd = () => {
       </Modal>
     </div> */}
 
-<M/>
+{/* <M/> */}
 
 
  </>

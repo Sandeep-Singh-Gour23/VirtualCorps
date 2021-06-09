@@ -8,6 +8,7 @@ import team from './images/team.jpg';
 import hr from './images/hr.png';
 import {Modal,Button,Row,Col,DropdownButton,Dropdown} from 'react-bootstrap';
 import './Hrd.css';
+import ExitToAppTwoToneIcon from '@material-ui/icons/ExitToAppTwoTone';
 import { Link } from 'react-router-dom';
 import MiniDrawer from './MiniDrawer';
 
@@ -23,7 +24,16 @@ const Hrd = () => {
   <>
   <div className = "header shadow-sm p-3 mb-5 rounded" >
   
-  <h2 >  <img src = {hr} alt = "logo" height = "150px" width = "250px"/> Human Resources </h2>
+  
+  <Row>
+      <Col lg ={11} xm ={11} sm={11}>
+      <h2 >  <img src = {hr} alt = "logo" height = "150px" width = "250px"/> Human Resources </h2>
+  </Col>
+  <Col lg ={1} xm ={1} sm={1}>
+    <br/>
+  <Link to="/"><button type="button" class="btn btn-light " style={{borderRadius:'90%'}}><ExitToAppTwoToneIcon/> Logout </button></Link>
+  </Col>
+  </Row>
   </div>
 
   <center> <h5>Welcome Human Resources</h5> </center>    
