@@ -9,6 +9,7 @@ function Button(props){
    const status =["assigned","pending","unassigned"];
     return(
     <>
+    <div className="body-bg">
       <div className="wrapper">
       <div class="btn">
       <p onClick={()=>setModalIsOpen(true)}>{props.title}</p>
@@ -40,9 +41,9 @@ function Button(props){
             placeholder="Select Project Name" 
             />
             <button className="button-1">Submit</button>
-      </div>
-      
-        </Modal> 
+         </div>
+          </Modal> 
+        </div>
     </>
     )
 }

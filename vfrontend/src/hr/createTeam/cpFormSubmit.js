@@ -142,8 +142,7 @@ const cpFormSubmit = ({submitForm2}) => {
                 
                  <button type="submit" className="form-input-btn">Submit</button>
             </form>
-          </div>
-            
+          </div>   
         </>
     )
 }
