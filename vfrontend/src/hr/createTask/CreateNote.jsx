@@ -12,6 +12,7 @@ const  CreateNote = (props) => {
    { 
     title : "",
     content : "",
+    description:"",
   }
   );
   
@@ -32,13 +33,42 @@ const  CreateNote = (props) => {
 
     }
 
-    const add = () =>{
-      props.passNote(note);
+    const add = async(e) =>{
+
+      e.preventDefault();
+
+      const res = await fetch("/createProject" ,{
+        method : "POST",
+        headers:{
+          "Content-Type":"application/json",
+          // "authorization":"bearer "+localStorage.getItem("JWT")
+        },
+        body: JSON.stringify({
+          "projectName": note.title,
+          "description": note.description ,
+          "subDescription":  note.content,
+        })
+
+   });
+
+   const data = await res.json();
+
+   if(!data)
+   {
+     window.alert("Invailid project creation");
+
+   }
+   else{
+     window.alert(data);
+     props.passNote(note);
       setnote({
         title : "",
         content : "",
         description:"",
       })
+   }
+
+     
 
     }
   return (

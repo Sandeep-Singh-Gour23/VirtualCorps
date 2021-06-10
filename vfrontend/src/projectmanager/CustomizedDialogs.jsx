@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -52,6 +52,10 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function CustomizedDialogs() {
+
+  const [date,setDate]= useState();
+  const [time,setTime]= useState();
+  const [drop,setDrop]= useState();
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -59,6 +63,42 @@ export default function CustomizedDialogs() {
   };
   const handleClose = () => {
     setOpen(false);
+  };
+  const schedule =  async(e)  => {
+
+    e.preventDefault();
+    console.log(date);
+    const res = await fetch("/scheduleMeet" ,{
+      method : "POST",
+      headers:{
+        "Content-Type":"application/json",
+        // "authorization":"bearer "+localStorage.getItem("JWT")
+      },
+      body: JSON.stringify({
+        "meetDate": "5 june 2021",
+   "meetTime": "2:30 pm",
+   "teamName": "Team Sandeep"
+      
+       
+      })
+     
+ });
+
+ const data = await res.json();
+ console.log(data);
+ if(!data)
+ {
+   window.alert("Invailid project creation");
+  
+ }
+ else{
+   window.alert("Schedule Meeting Successfully");
+   console.log(data);
+   setOpen(false);
+ 
+ }
+ 
+    
   };
 
   return (
@@ -78,21 +118,37 @@ export default function CustomizedDialogs() {
     </Col>
     <Col xs={5}>
         Select Date:
-        <input type="date" id="birthday" name="birthday"></input>
+        <input type="date" id="birthday" name="birthday"
+         value ={date}
+         onChange = {(event)=>{
+           setDate(event.target.value);
+         }}
+        ></input>
         <br/>
         <br/>
         Select Time:
         <br/>
-        <input type="time" id="appt" name="appt"></input>
+        <input type="time" id="appt" name="appt"
+         value ={time}
+         onChange = {(event)=>{
+           setTime(event.target.value);
+         }}
+        
+        ></input>
         <br/>
         <br/>
         Select Team:
         <br/>
-        <select name="cars" id="cars" style={{backgroundColor:"white"}}>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="mercedes">Mercedes</option>
-  <option value="audi">Audi</option>
+        <select name="cars" id="cars"
+        value ={drop}
+        onChange = {(event)=>{
+          setDrop(event.target.value);
+        }}
+        style={{backgroundColor:"white"}}>
+  <option value="volvo">Team A</option>
+  <option value="saab">Team B</option>
+  <option value="mercedes">Team C</option>
+  <option value="audi">Team D</option>
 </select>
 
     </Col>
@@ -101,7 +157,9 @@ export default function CustomizedDialogs() {
         </DialogContent>
         <DialogActions>
          
-          <button type="button" class="btn btn-dark"  onClick={handleClose}> Schedule</button>
+          <button type="button" class="btn btn-dark"  onClick={schedule}> Schedule</button>
+
+          <button type="button" class="btn btn-danger"  onClick={handleClose}> Close</button>
         </DialogActions>
       </Dialog>
     </div>
