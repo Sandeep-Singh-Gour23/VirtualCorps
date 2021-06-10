@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import SignModal from './SignModal';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -56,11 +57,12 @@ function Navbar() {
                 className='nav-links-mobile'
                 onClick={closeMobileMenu}
               >
-                Sign In
+                <SignModal/>
               </Link>
             </li>
           </ul>
-          {button && <Button buttonStyle='btn--outline'>SIGN IN</Button>}
+          {/* {button && <Button buttonStyle='btn--outline'><SignModal/></Button>} */}
+           {button && <SignModal/>}
         </div>
       </nav>
     </>
