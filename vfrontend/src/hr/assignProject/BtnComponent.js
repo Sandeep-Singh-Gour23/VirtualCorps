@@ -7,19 +7,23 @@ import './BtnComponents.style.css'
 function Button(props){
    const [modalIsOpen, setModalIsOpen] = useState(false)
    const status =["assigned","pending","unassigned"];
+
+  //fetching
+    
+
     return(
     <>
     <div className="body-bg">
-      <div className="wrapper">
-      <div class="btn">
-      <p onClick={()=>setModalIsOpen(true)}>{props.title}</p>
-      <p className="status">Status: {status[Math.floor(Math.random() * status.length)]}</p>
-      <span className="BorderTopBottom"></span>
-      <span className="BorderLeftRight"></span>
-      </div>
+        <div className="wrapper">
+          <div class="btn">
+           <p onClick={()=>setModalIsOpen(true)}>{props.title}</p>
+            <p className="status">Status: {status[Math.floor(Math.random() * status.length)]}</p>
+            <span className="BorderTopBottom"></span>
+            <span className="BorderLeftRight"></span>
+          </div>
       </div>
          
-         <Modal isOpen={modalIsOpen} onRequestClose={()=>setModalIsOpen(false)} shouldCloseOnOverlayClick={true} style={{overlay:{backgroundColor:'#868686'}}}>
+         <Modal isOpen={modalIsOpen} onRequestClose={()=>setModalIsOpen(false)} shouldCloseOnOverlayClick={true} style={{overlay:{backgroundColor:'#868686'}}} >
         <div className="box">
         <button className="closeBtn" onClick={() => setModalIsOpen(false)}>X</button>
             <h2 className="box-title">{props.title}</h2>

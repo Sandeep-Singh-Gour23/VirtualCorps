@@ -1,91 +1,70 @@
-import React from 'react';
+import React,{  useState } from 'react';
 // import ReactDOM from "react-dom";
-import Select from "react-select";
+
 import "../../styles/form.css"
 import useCreateMemForm from './useCreateMemForm';
 import validate from './ValidateInfo'
 
 
 const FormSubmit = ({submitForm}) => {
-    const {handleChange, handleSubmit, values, errors, handleClick} = useCreateMemForm(
+
+    const [role, setRole] = useState("");
+    const [empTech, setTechValue] = useState("")
+
+    const {handleChange, handleSubmit, values, errors} = useCreateMemForm(
         submitForm,
         validate, 
       );
-    // validation for role dropdown
-    //   const [roleValue, setRoleValue] = useState('')
-
-    //   const handleClick = (field, value) => {
-    //     switch (field) {
-    //       case 'roles':
-    //         setRoleValue(value)
-    //         console.log(roleValue)
-    //         break
-    
-    //       default:
-    //         break
-    //     }
-    //   }
-
-    //   const checkV = () => {
-    //       if(roleValue === ""){
-    //           alert("Please select a option");
-    //       }
-    //   }
    
-    const Roleoptions = [
-        {   value:1,
-            label:"Project Manager"
-        },
-        {
-            value:2,
-            label:"Team Leader"
-        },
-        {
-            value:3,
-            label:"Team Member"
-        } ];
-    const TechOption = [
-        {
-            value:1,
-            label:"UI/UX design"
-        },
-        {
-            value:2,
-            label:"Data Modelling"
-        },
-        {
-            value:3,
-            label:"Front-end"
-        },
-        {
-            value:4,
-            label:"Back-end"
-        },
-        {
-            value:5,
-            label:"Full Stack"
+      const PostData = async (e) => {
+        e.preventDefault();
+    
+        const { fullName, address, contactNumber, email, password } = values;
+    
+        const res = await fetch("/signup", {
+          method: "POST",
+          headers:{
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            fullName, address, contactNumber, email, role, password, empTech
+          }),
+        });
+    
+        const data = await res.json();
+        console.log(data);
+    
+        if (data.status === 404 || !data) {
+          window.alert("Registration Failed");
+          console.log("Registration Failed");
+        } else {
+          window.alert("Registration Successful!!");
+          console.log("Registration Successful!!");
         }
-    ]  
+      };
 
+    // console.log(role)
+    // console.log(values.fullName)
+    // console.log(empTech)
     return(
         <> 
              <div className="form-content-right">
-                 <form onSubmit={handleSubmit} className='form' noValidate>
+                 <form className='form' method="POST" noValidate>
                     <input type="text"
                         placeholder="Enter Your Full Name"
                         className="form-input"
-                        name="username"
-                        value={values.username}
+                        name="fullName"
+                        value={values.fullName}
                         onChange={handleChange}
                     />
-                    {errors.username && <p>{errors.username}</p>}
+                    {errors.fullName && <p>{errors.fullName}</p>}
                     <br />
 
                     <input type="email"
                     placeholder="Enter Your Email"
                     name="email"
                     className="form-input"
-                    value={values.mail}
+                    value={values.email}
                     onChange={handleChange}
                     />
                     {errors.email && <p>{errors.email}</p>}
@@ -104,12 +83,12 @@ const FormSubmit = ({submitForm}) => {
 
                 <input type="number"
                    placeholder="Enter Your Contact Number"
-                   name="number"  
+                   name="contactNumber"  
                    className="form-input"
-                   value={values.number}
+                   value={values.contactNumber}
                     onChange={handleChange}
                 />
-                {errors.number && <p>{errors.number}</p>}
+                {errors.contactNumber && <p>{errors.contactNumber}</p>}
                  <br />
 
                 <input type="password"
@@ -122,27 +101,39 @@ const FormSubmit = ({submitForm}) => {
                 {errors.password && <p>{errors.password}</p>}   
                 <br />
 
-                <Select 
-                    value={values.setRoleValue} 
-                    className="drop-down" 
-                    name="roleValue"
-                    onClick={(setRoleValue) => handleClick('roles', values)}
-                    placeholder="Select a Role" 
-                    options={Roleoptions}
-                />
-                 {errors.roleValue && <p>{errors.roleValue}</p>}
-                 <br />
-                <Select 
-                    placeholder="Your Interested Technology"
+                <label Htmlfor="role">Choose a Role:</label>
+                <select name="role"
+                    value ={role}
+                    onChange = {(event)=>{
+                    setRole(event.target.value);
+                        }}
                     className="drop-down"
-                    name="technology"
-                    value={values.setTechValue}
-                    options={TechOption}
-                    onClick={(setTechValue) => handleClick('tech', values)}
-                /> 
-                {errors.techValue && <p>{errors.techValue}</p>}
+                    style={{backgroundColor:"white"}}>
+                    <option value="Project Manager">Project Manager</option>
+                   <option value="Team Leader">Team Leader</option>
+                   <option value="Team Member">Team Member</option>
+                </select>
+                 {errors.role && <p>{errors.role}</p>}
+                 <br />
+
+                <label Htmlfor="empTech">Choose a Technology:</label>
+                <select name="empTech"
+                    className="drop-down"
+                    value ={empTech}
+                    onChange = {(event)=>{
+                        setTechValue(event.target.value);
+                        }}
+                    style={{backgroundColor:"white"}}>
+                     <option value="Front-End">Front-End</option>
+                    <option value="Back-end">Back-end</option>
+                    <option value="UI/UX design">UI/UX design</option>
+                    <option value="Data Modelling">Data Modelling</option>
+                    <option value="Full Stack">Full Stack</option>
+                </select>
+        
+                {errors.empTech && <p>{errors.empTech}</p>}
                 <br />
-                <button type="submit" className="form-input-btn">
+                <button type="submit" className="form-input-btn" onClick={PostData}>
                     Submit
                 </button>
                 </form>

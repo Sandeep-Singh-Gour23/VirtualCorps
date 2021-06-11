@@ -1,8 +1,8 @@
 export default function validateInfo(values) {
     let errors = {};
   
-    if(!values.username){
-        errors.username="Username required";
+    if(!values.fullName){
+        errors.fullName="Username required";
     }
     
     if(!values.email){
@@ -16,10 +16,10 @@ export default function validateInfo(values) {
         errors.address="Address is required";
     }
 
-    if(!values.number){
-        errors.number="Contact Number is required";
-    }else if((values.number).length !== 10){
-        errors.number="Number not valid";
+    if(!values.contactNumber){
+        errors.contactNumber="Contact Number is required";
+    }else if((values.contactNumber).length !== 10){
+        errors.contactNumber="Number not valid";
     }
 
     if (!values.password) {
@@ -28,12 +28,12 @@ export default function validateInfo(values) {
         errors.password = 'Password needs to be 6 characters or more';
     }
 
-    if(values.roleValue === " "){
-        errors.roleValue = "Please select role";
+    if(values.role === " "){
+        errors.role = "Please select role";
     }
 
-    if(values.techValue === " "){
-        errors.techValue = "Please select Technology";
+    if(values.empTech === " "){
+        errors.empTech = "Please select Technology";
     }
 
   return errors;
