@@ -1,62 +1,39 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const useCreateMemForm = (callback, validate) => {
   const [values, setValues] = useState({
-    username: '',
-    email: '',
-    address: '',
-    number: '',
-    password:'',
-    roleValue:'',
-    techValue:''
+   fullName: "",
+   address: "",
+   contactNumber: "",
+   email: "",
+   password: "",
   });
+
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  
-  const [roleValue, setRoleValue] = useState('')
-  const [techValue, setTechValue] = useState('')
-
-  const handleClick = (field, value) => {
-    switch (field) {
-      case 'roles':
-        setRoleValue(values)
-        console.log(roleValue)
-        break;
-      case 'tech':
-        setTechValue(value)
-        console.log(techValue)
-        break;
-
-      default:
-        break
-    }
-  }
-
-  const handleChange = e => {
+ 
+  const handleChange = (e) => {
     const { name, value } = e.target;
     setValues({
       ...values,
-      [name]: value
+      [name]: value,
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(validate(values));
     setIsSubmitting(true);
   };
 
-  useEffect(
-    () => {
-      if (Object.keys(errors).length === 0 && isSubmitting) {
-        callback();
-      }
-    },
-    [errors, callback, isSubmitting]
-  );
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      callback();
+    }
+  }, [errors, callback, isSubmitting]);
 
-  return { handleChange, handleSubmit, values, errors, handleClick};
+  return { handleChange, handleSubmit, values, errors};
 };
 
 export default useCreateMemForm;

@@ -7,7 +7,7 @@ import Hrd from './hr/Hrd';
 import Adm from './admin/Adm';
 import Form from './hr/createMember/Form'
 import MemForm from './hr/createTeam/MemForm'
-import Profile from './teamMember/Profile'
+import TaskStatus from './teamMember/TaskStatus'
 import First from './home/First'
 import Cn from './hr/createTask/Cn';
 import Assignhr from './hr/assignProject/AssignProj';
@@ -53,7 +53,7 @@ const  App = () => {
       {Pmd}
       />
          <Route path="/member" exact component=
-      {Profile}
+      {TaskStatus}
       />
 
       </Switch>
