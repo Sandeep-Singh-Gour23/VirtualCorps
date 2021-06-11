@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import {Row,Col,DropdownButton,Dropdown} from 'react-bootstrap';
 import {Route ,useHistory} from 'react-router-dom';
 import Hrd from '../../hr/Hrd'
+import { Link } from '@material-ui/core';
 
 
 // import './SignModal.css';
@@ -93,6 +94,10 @@ fetch("/login", {
         }
         
 else{
+// if(email=='hr@2.com'){
+  
+// }
+
 setOpen(false);
 
 
@@ -103,27 +108,27 @@ setOpen(false);
         // console.log(data.data.role);
           if(data.data.role=='HR'){
   history.push("/hr")
- 
+
 }
 
-// if(data.data.role=='Admin'){
-//   console.log('admin');
-//   history.push("/admin")
-// }
+if(data.data.role=='Admin'){
+  console.log('admin');
+  history.push("/admin")
+}
 
-// if(data.data.role=='Team Leader'){
-//   history.push("/member")
-// }
+if(data.data.role=='Team Leader'){
+  history.push("/member")
+}
 
-// if(data.data.role=='Team Member'){
-//   history.push("/member")
-// }
+if(data.data.role=='Team Member'){
+  history.push("/member")
+}
 
-// if(data.data.role=='Project Manager'){
-//   history.push("/projectmanager")
+if(data.data.role=='Project Manager'){
+  history.push("/projectmanager")
 
 
-// }
+}
 
 
 

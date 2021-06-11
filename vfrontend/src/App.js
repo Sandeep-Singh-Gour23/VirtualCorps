@@ -12,6 +12,7 @@ import First from './home/First'
 import Cn from './hr/createTask/Cn';
 import Assignhr from './hr/assignProject/AssignProj';
 import {BrowserRouter as Router , Switch , Route} from 'react-router-dom'
+import Home from './home/components/Pages/Home'
 const  App = () => {
 
   
@@ -22,7 +23,7 @@ const  App = () => {
   
     <Switch>
       <Route path="/" exact component=
-      {First}
+      {Home}
       />
       <Route path="/admin" exact component=
       {Adm}

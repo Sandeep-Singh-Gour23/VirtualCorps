@@ -19,7 +19,7 @@ function WCards() {
               src='images/HR-img.jpg'
               text='Recruits and Assigns Projects.'
               label='HR'
-              path='/'
+              path='/hr'
             />
           </ul>
           <ul className='cards__items'>

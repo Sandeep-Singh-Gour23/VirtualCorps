@@ -3,19 +3,22 @@ import Navbar from "./components/Navbar"
 import {BrowserRouter as Router , Switch , Route} from 'react-router-dom'
 import './First.css';
 import Home from "./components/Pages/Home";
-
+import Hrd from '../hr/Hrd'
 
 function First() {
   return (
     <>
-    <Router>
+    {/* <Router>
     <Navbar/>
-    <Switch>
-      <Route path="/" exact component=
+    <Switch> */}
+      {/* <Route path="/" exact component=
       {Home}
-      />
-      </Switch>
-     </Router>
+      /> */}
+      {/* <Route path="/hr" exact component=
+      {Hrd}
+      /> */}
+      {/* </Switch>
+     </Router> */}
   </>  
   )
 }
