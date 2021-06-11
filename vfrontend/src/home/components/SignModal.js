@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState,useEffect}from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -9,6 +9,9 @@ import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import {Row,Col,DropdownButton,Dropdown} from 'react-bootstrap';
+import {Route ,useHistory} from 'react-router-dom';
+import Hrd from '../../hr/Hrd'
+
 
 // import './SignModal.css';
 
@@ -53,7 +56,10 @@ const DialogActions = withStyles((theme) => ({
 }))(MuiDialogActions);
 
 export default function SignModal() {
+  const history=useHistory();
   const [open, setOpen] = React.useState(false);
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -62,8 +68,114 @@ export default function SignModal() {
     setOpen(false);
   };
 
+
+const signInUuser=async(e)=>{
+  e.preventDefault();
+// history.push("/hr");
+console.warn(email,password);
+// let item={email,password};
+// console.log(item.email);
+fetch("/login", {
+      method: "Post",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
+    }).then(res => res.json())
+      .then(data => {
+        console.log(data)
+        
+        if (data.error) {
+          // M.toast({ html: data.error, classes: "#c62828 red darken-3" })
+        }
+        
+else{
+setOpen(false);
+
+
+          localStorage.setItem("jwt", data.data.message)
+        //   localStorage.setItem("user", JSON.stringify(data.data.user.userId))
+        //   localStorage.setItem("userName", JSON.stringify(data.data.user.userName))
+        //   notify();
+        // console.log(data.data.role);
+          if(data.data.role=='HR'){
+  history.push("/hr")
+ 
+}
+
+// if(data.data.role=='Admin'){
+//   console.log('admin');
+//   history.push("/admin")
+// }
+
+// if(data.data.role=='Team Leader'){
+//   history.push("/member")
+// }
+
+// if(data.data.role=='Team Member'){
+//   history.push("/member")
+// }
+
+// if(data.data.role=='Project Manager'){
+//   history.push("/projectmanager")
+
+
+// }
+
+
+
+        }
+      }).catch(err => {
+        console.log(err)
+      })
+
+// let data= await fetch("/login",{
+//   method:'POST',
+//   header:{
+//     // "Content-Type":"application.json"
+//   },
+//   body: JSON.stringify({ "email": email,
+//    "password": password,
+//    })
+
+
+// });
+// data= await data.json();
+// localStorage.setItem('JWT',JSON.stringify(data))
+// if(data.role=='HR'){
+//   history.push("/hr")
+// }
+
+// if(data.role=='admin'){
+//   history.push("/adm")
+// }
+
+// if(data.role=='Team Leader'){
+//   history.push("/member")
+// }
+
+// if(data.role=='Team Member'){
+//   history.push("/member")
+// }
+
+// if(data.role=='Project Manager'){
+//   history.push("/projectmanager")
+
+
+// }
+
+
+}
+
+
+
   return (
+    <>
     <div>
+      
       <Button style={{color:'white' , border:'1px solid white'}} onClick={handleClickOpen}>
         {/* <Button style={{color:'white' ,fontSize:'20px',position:'aboslute',}} onClick={handleClickOpen}></Button> */}Sign In
       </Button>
@@ -78,12 +190,15 @@ export default function SignModal() {
     </Col>
     <Col xs={5}>
         Enter Email:
-        <input type="email" id="" name="birthday"></input>
+        <input type="text" palceholder='email'
+        onChange={(e)=>setEmail(e.target.value)}
+      />
         <br/>
         <br/>
         Enter Password:
         <br/>
-        <input type="password" id="" name="appt"></input>
+        <input type="password" palceholder="password" 
+        onChange={(e)=>setPassword(e.target.value)}></input>
         <br/>
         <br/>
 
@@ -92,11 +207,12 @@ export default function SignModal() {
     </Row>
         </DialogContent>
         <DialogActions>
-          <Button autoFocus onClick={handleClose} >
+          <Button autoFocus onClick={signInUuser} >
           Confirm
           </Button>
         </DialogActions>
       </Dialog>
     </div>
+    </>
   );
 }

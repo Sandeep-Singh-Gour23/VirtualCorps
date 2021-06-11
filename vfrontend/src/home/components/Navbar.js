@@ -62,7 +62,7 @@ function Navbar() {
             </li>
           </ul>
           {/* {button && <Button buttonStyle='btn--outline'><SignModal/></Button>} */}
-           {button && <SignModal/>}
+          <SignModal/>
         </div>
       </nav>
     </>

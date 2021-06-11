@@ -53,6 +53,7 @@ const Login = async (req, res) => {
   let access_token;
  // console.log(req.body);
   let { email, password } = req.body;
+  console.log(email,password)
   if (!validator.isEmail(email || ""))
  return badRequestError(res, "Enter a valid email address ");
   if (password === "")
