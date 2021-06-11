@@ -75,9 +75,9 @@ export default function CustomizedDialogs() {
         // "authorization":"bearer "+localStorage.getItem("JWT")
       },
       body: JSON.stringify({
-        "meetDate": "5 june 2021",
-   "meetTime": "2:30 pm",
-   "teamName": "Team Sandeep"
+        "meetDate": date,
+   "meetTime": time,
+   "teamName": drop
       
        
       })
@@ -145,10 +145,10 @@ export default function CustomizedDialogs() {
           setDrop(event.target.value);
         }}
         style={{backgroundColor:"white"}}>
-  <option value="volvo">Team A</option>
-  <option value="saab">Team B</option>
-  <option value="mercedes">Team C</option>
-  <option value="audi">Team D</option>
+  <option value="Team A">Team A</option>
+  <option value="Team B">Team B</option>
+  <option value="Team C">Team C</option>
+  <option value="Team D">Team D</option>
 </select>
 
     </Col>
