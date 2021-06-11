@@ -3,6 +3,7 @@ import '../First.css';
 import { Button } from './Button';
 import './FrontSection.css';
 //import {Link} from 'react-router-dom';
+import SignModal from './SignModal';
 
 function FrontSection() {
   return (

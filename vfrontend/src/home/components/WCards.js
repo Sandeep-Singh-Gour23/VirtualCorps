@@ -5,7 +5,7 @@ import CardItem from './WCardItem';
 function WCards() {
   return (
     <div className='cards'>
-      <h1>Check out our FEATURES!</h1>
+      <h1 className="cards-h">Check out our FEATURES!</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>

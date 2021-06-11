@@ -36,7 +36,7 @@ const  App = () => {
       /><Route path="/admin/createmember" exact component=
       {Form}
       />
-         <Route path="/hr" exact component=
+      <Route path="/hr" exact component=
       {Hrd}
       />
         <Route path="/hr/createtask" exact component=
@@ -48,7 +48,7 @@ const  App = () => {
       /><Route path="/hr/createmember" exact component=
       {Form}
       />
-         <Route path="/projectmanager" exact component=
+      <Route path="/projectmanager" exact component=
       {Pmd}
       />
          <Route path="/member" exact component=
