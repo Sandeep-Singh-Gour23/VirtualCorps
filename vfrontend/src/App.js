@@ -11,6 +11,7 @@ import TaskStatus from './teamMember/TaskStatus'
 import First from './home/First'
 import Cn from './hr/createTask/Cn';
 import Assignhr from './hr/assignProject/AssignProj';
+import AssignPmd from '../src/projectmanager/assignProject/AssignProj'
 import {BrowserRouter as Router , Switch , Route} from 'react-router-dom'
 import Home from './home/components/Pages/Home'
 const  App = () => {
@@ -52,7 +53,12 @@ const  App = () => {
       <Route path="/projectmanager" exact component=
       {Pmd}
       />
-         <Route path="/member" exact component=
+
+      <Route path="/projectmanager/assignproject" exact component=
+      {AssignPmd}
+      />
+      
+      <Route path="/member" exact component=
       {TaskStatus}
       />
 

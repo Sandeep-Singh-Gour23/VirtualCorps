@@ -31,58 +31,58 @@ const cpFormSubmit = ({submitForm2}) => {
 
     const ProjectManager = [
         {   value:1,
-            label:"ABCDEF 121"
+            label:"Nishi Patodi"
         },
         {
             value:2,
-            label:"SDFGTE 152"
+            label:"Deshna Shrivastav"
         },
         {
             value:3,
-            label:"CFHSFGH 178"
+            label:"Rohit Sharma"
         } ];
     const  TeamLeader = [
         {
             value:1,
-            label:"lkxcn 254"
+            label:"Anshika Sethiya"
         },
         {
             value:2,
-            label:"dnfhgb 145"
+            label:"Hardik Yadav"
         },
         {
             value:3,
-            label:"cnnfn 785"
+            label:"Amisha Singh"
         },
         {
             value:4,
-            label:"dnfhg 524"
+            label:"Ayush Gupta"
         },
         {
             value:5,
-            label:"mdkef 654"
+            label:"Hritik Jain"
         }
     ];
     const TeamMember = [
         {
             value:1,
-            label:"absf"
+            label:"Bhawna Sharma"
         },
         {
             value:2,
-            label:"dsnvns"
+            label:"Muskan Rathod"
         },
         {
             value:3,
-            label:"sncns"
+            label:"Aisha Panwar"
         },
         {
             value:4,
-            label:"cnxms"
+            label:"Samarth "
         },
         {
             value:5,
-            label:"cncns"
+            label:"Darsh Patel"
         }
     ]
     return (
