@@ -1,5 +1,3 @@
-
-
 import React , { useState } from 'react';
 import logo from './images/pm.png';
 import assign from './images/pma.png';
@@ -127,7 +125,9 @@ const Pmd = () => {
      </button>
       </Link>
       </a> */}
-    <p class="card-text"><center><button type="button" class="btn btn-dark">Assign Project </button></center></p>
+      <Link to='/projectmanager/assignProject'>
+        <p class="card-text"><center><button type="button" class="btn btn-dark">Assign Project </button></center></p>
+      </Link>
     </div>
 
   </div>
