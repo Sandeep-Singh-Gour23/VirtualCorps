@@ -16,7 +16,7 @@ const  Cn = () => {
         method : "GET",
         headers:{
           // "Content-Type":"application/json",
-          "authorization":"Bearer "+localStorage.getItem("JWT")
+          "authorization":"bearer "+localStorage.getItem("JWT")
         },
 
       });
@@ -85,7 +85,7 @@ const  Cn = () => {
               key = {index}
               id={value.projectName}
               title ={value.projectName}
-              content = {value.description}
+              content = {value.subDescription}
               status = "Not Assigned"
               deleteItem = {delitem}
         />

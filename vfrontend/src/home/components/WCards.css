@@ -3,7 +3,7 @@
   background: #fff;
 }
 
-.cards.h {
+.cards h1 {
   text-align: center;
 }
 
@@ -94,6 +94,7 @@
 }
 
 .cards__item__text {
+  font-family: "Roboto Condensed", sans-serif;
   color: #252e48;
   font-size: 18px;
   line-height: 24px;
