@@ -5,11 +5,11 @@ import CardItem from './WCardItem';
 function WCards() {
   return (
     <div className='cards'>
-      <h1 className="cards-h">Check out our FEATURES!</h1>
+      <h1>Check out our FEATURES!</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
-            <CardItem
+            <CardItem 
               src='images/admin1-img.png'
               text='Admin manages every working of a particular startup and the other roles'
               label='Admin'

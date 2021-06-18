@@ -3,6 +3,7 @@ import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
 import SignModal from './SignModal';
+// import '../First.css'
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -27,9 +28,9 @@ function Navbar() {
 
   return (
     <>
-      <nav className='navbar'>
-        <div className='navbar-container'>
-          <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
+      <nav className='home-navbar'>
+        <div className='navbar-container' >
+          <Link to='/' className='navbar-logo' style={{textDecoration:'none'}} onClick={closeMobileMenu}>
             Virtual Corps
             <i class='fab fa-typo3' />
           </Link>

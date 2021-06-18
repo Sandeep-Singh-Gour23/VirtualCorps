@@ -41,7 +41,7 @@ const  CreateNote = (props) => {
         method : "POST",
         headers:{
           "Content-Type":"application/json",
-          "authorization":"Bearer "+localStorage.getItem("JWT")
+          "authorization":"bearer "+localStorage.getItem("JWT")
         },
         body: JSON.stringify({
           "projectName": note.title,

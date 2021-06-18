@@ -3,14 +3,15 @@
   padding: 7% 10% 7% 10%;
 }
 
-h1 {
+.end-head {
   font-size: 50px;
-  padding-bot: 30px;
+  padding-bottom: 30px;
+  text-align: center;
 }
 
-p {
+.aim-para {
   padding: 5px 5px 5px 5px;
-  postion: absolute;
+  position: relative;
   font-size: large;
   text-align: center;
 }
