@@ -4,42 +4,53 @@ import { Link } from 'react-router-dom'
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import taskAssign from '../../Image/undraw_Task_re_wi3v.svg'
 import { useState } from 'react';
+import BtnComponent from './BtnComponent';
+import axios from 'axios'
 
-const AssignProj = () => {
+const AssignProj = (props) => {
 
-    // const [projectData, setProjData] = useState({
-    //     "empId": 3,
-    //     "fullName": "Nishi Patodi",
-    //     "projectName": "Instagram clone"
-    //   })
+    //fetching
+  const [ project, setProjects] = useState([])
 
-    //   const apiGet = () => {
-    //       fetch("http://localhost:8000/virtualcorp/createProject")
-    //       .then((response) => response.json)
-    //       .then((json) => {
-    //           setProjData(json)
-    //       })
-    //   }
+  useEffect(() => {
+    getAllProject()
+  },[])
 
-    //   useEffect(() =>{
-
-    //   }, [])
+  const getAllProject = async () => {
+      try {
+        console.log("getting all the projects")
+        const response = await fetch("/getAllProjects",{method:'GET'})
+        console.log("response:", response )
+        const data = await response.json();
+        setProjects(data.data.NotAssignedProject)
+        console.log(data.data.NotAssignedProject)
+      } catch (error) {
+        console.log("Error: ", error)
+      }
+  }
+      
     return (
         <>  
              <div className="task-nav">
                 <h2 className="headingTask"><img src={taskAssign} alt="logo" className="assign-image"/>Project Assignment</h2>
-                <Link to="/projectmanager"><button type="button" class="btn d-icon"><DashboardIcon/> Dashboard </button></Link>
+                <Link to="/projectmanager"><button type="button" class="btn d-icon" className="dash-icon"><DashboardIcon/> Dashboard </button></Link>
             </div>
-            <div className="container">
-                <Button props title="Project 1" />  
-                <Button props title="Project 2" />
-                <Button props title="Project 3" />
-                <Button props title="Project 4" />
-                <Button props title="Project 5" />
-                <Button props title="Project 6" />
-                <Button props title="Project 7" />
-            </div>   
-             <span className="showMore">Show More</span> 
+            {/* <div className="container">
+                {projectData.map(project => (
+                <Button key={project.projectId} props title={project.projectName}/>  
+            ))} */}
+
+            {/* </div> 
+           */}
+
+           <div className="container">
+           {
+            project.map((value,index) => {
+            return(
+               <Button props key={index} title={value.projectName}/>
+            )})}
+             </div>
+             
      </>        
     )
 }

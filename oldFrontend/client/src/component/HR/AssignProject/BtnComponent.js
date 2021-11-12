@@ -4,7 +4,7 @@ import Select from "react-select"
 import './BtnComponents.style.css'
 
 
-function Button(props){
+function Button(){
    const [modalIsOpen, setModalIsOpen] = useState(false)
    const status =["assigned","pending","unassigned"];
     return(
