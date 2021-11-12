@@ -9,7 +9,7 @@ import validate from './ValidateInfo'
 const FormSubmit = ({submitForm}) => {
 
     const [role, setRole] = useState("");
-    const [empTech, setTechValue] = useState("")
+    const [empTech, setTechValue] = useState("");
 
     const {handleChange, handleSubmit, values, errors} = useCreateMemForm(
         submitForm,
@@ -27,7 +27,7 @@ const FormSubmit = ({submitForm}) => {
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
-            fullName, address, contactNumber, email, role, password, empTech
+            fullName, address, contactNumber, email, password, role, empTech
           }),
         });
     
@@ -43,9 +43,9 @@ const FormSubmit = ({submitForm}) => {
         }
       };
 
-    // console.log(role)
+    console.log(role)
     // console.log(values.fullName)
-    // console.log(empTech)
+    console.log(empTech)
     return(
         <> 
              <div className="form-content-right">
