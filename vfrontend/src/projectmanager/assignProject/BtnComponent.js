@@ -7,43 +7,42 @@ function Button(props){
    const [modalIsOpen, setModalIsOpen] = useState(false)
 
   // //fetching
-  // const [ project, setProjects] = useState([])
+   const [ teamLead, setTeamLead ] = useState([])
 
-  //   useEffect(() => {
-  //     getAllProject()
-  //   },[])
+   useEffect(() => {
+    getAllLeader();
+   },[])
 
-  //   const getAllProject = async () => {
-  //       try {
-  //         console.log("getting all the projects")
-  //         const response = await fetch("/getAllProjects",{method:'GET'})
-  //         console.log("response:", response )
-  //         const data = await response.json();
-  //         setProjects(data.data.NotAssignedProject)
-  //         console.log(data.data.NotAssignedProject)
-  //       } catch (error) {
-  //         console.log("Error: ", error)
-  //       }
-  //   }
+  const getAllLeader = async () => {
+    try {
+      console.log("getting all team leader")
+      const res = await fetch("/getAllTLsTMs", {method: 'GET',
+      headers:{
+        "content-type": "application/json",
+        "authorization":"bearer "+localStorage.getItem("jwt")
+      }
+      })
+      console.log("response", res)
+      const data = await res.json()
+      // console.log(data)
+      setTeamLead(data.data.allTeamLeaders)
+      console.log(data)
+    } catch (error) {
+      console.log("Error: ", error)
+    }
+}
     return(
     <>
        <div className="body-bg">
-  
-          
-          {/* {
-            project.map((value,index) => {
-            return( */}
-              <div className="wrapper">
+          <div className="wrapper">
               <div class="btn">
                   <p onClick={()=>setModalIsOpen(true)}> {props.title}</p>
-                   <p className="status">Let it be</p>
-                       <span className="BorderTopBottom"></span>
-                       <span className="BorderLeftRight"></span>
-                </div>
+                   <p className="status">Not assigned</p>
+                      <span className="BorderTopBottom"></span>
+                      <span className="BorderLeftRight"></span>
               </div>
-              {/* )
-             }
-            )}   */}
+          </div>
+
          
          <Modal isOpen={modalIsOpen} onRequestClose={()=>setModalIsOpen(false)} 
                     shouldCloseOnOverlayClick={true}
@@ -54,21 +53,29 @@ function Button(props){
             <h2 className="box-title">{props.title}</h2>
 
             <p className="des-title">Description-</p>
-            <h3 className="description head3">{props.value.description}</h3><br/>
+            <h3 className="description head3">{props.description}</h3><br/>
 
             <p className="des-title">Sub-description-</p>
             <h3 className="sub-description head3">{props.subDescription}
             </h3>
              
             <Select 
-              placeholder="Select Employee Id"
-              className="drop-down2"
-            />
+              placeholder="select Team Leader"
+              className="drop-down2">
+              {
+                teamLead.map((item) => {
+                  <option key={item.empId} value={item.empId}>
+                    {item.fullName}
+                  </option>
+                }
+                )}
+              </Select>
+
             <Select
             className="drop-down2"
             placeholder="Select Project Name" 
             />
-            <button className="button-1">Submit</button>
+            <button className="button-1">Assign</button>
          </div>
           </Modal> 
           

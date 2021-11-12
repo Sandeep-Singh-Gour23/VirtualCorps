@@ -1,0 +1,119 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.top-nav{
+    height: 5rem;
+    background-color: #2bbbad ;
+}
+.work-head{
+    height: 5rem;
+    /* color: #8A8A92; */
+    color: black;
+    margin-left: 1rem;
+    font-size: 1.5rem;
+}
+.work-img{
+    height:5rem;
+    width: 6rem;
+}
+.mem-navbar{
+    background-color:#8A8A92 ;
+    height:89vh;
+    position: relative;
+    left: 0;
+    margin-left: 0;
+}
+.two-icon{
+    display: flex;
+    position:absolute;
+    right:4%;
+    top: 1%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: max-content;
+    height: 2rem;
+}
+.two-icon p{
+    font-size: 1.5rem;
+    color:black;
+    justify-content: space-between;
+    align-items: center;
+    padding-right:0.8rem;
+    cursor: pointer;
+}
+.profile-sec{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid #fff;
+}
+.profile-icon{
+    justify-items: center;
+    text-align: center;
+}
+.profile-p{
+    color: #fff;
+}
+.mem-ul{
+    margin-top: 0%;
+    list-style-type: none;
+    color: #fff;
+    
+}
+.mem-ul li{
+    padding:0.5rem;
+    letter-spacing: 1%;
+    font: 1rem;
+    border-bottom: 1px solid #fff;
+}
+.mem-ul li:hover{
+    background-color: #2bbbad;
+    color: #fff;
+}
+.tm-logout{
+    margin-top: 1px solid #fff;
+    position: relative;
+    top:23%;
+    color: #fff;
+    font-size: 1.5rem;
+    background-color: #2bbbad;
+}
+.tm-logout p:hover{
+    cursor: pointer;
+    color: #8A8A92;
+}
+
+.mem-project-card{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    left: 5%;
+    margin-top:5%;
+    justify-content: center;
+    /* align-items: center; */
+}
+.single-card{
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    width:20rem;
+    height:20rem;
+    background-color:gray;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.single-card img{
+    width:100%;
+    height:80%;
+}
+.panel-btn{
+    background-color:#8A8A92;
+    color: black;
+    padding:1%;
+    position: relative;
+    text-align: center;
+    justify-content: center;
+}

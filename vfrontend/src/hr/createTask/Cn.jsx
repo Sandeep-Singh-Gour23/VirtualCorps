@@ -15,8 +15,8 @@ const  Cn = () => {
 
         method : "GET",
         headers:{
-          // "Content-Type":"application/json",
-          "authorization":"bearer "+localStorage.getItem("JWT")
+          "Content-Type":"application/json",
+          "authorization":"bearer "+localStorage.getItem("jwt")
         },
 
       });

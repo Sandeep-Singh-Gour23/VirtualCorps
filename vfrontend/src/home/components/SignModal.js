@@ -101,7 +101,7 @@ else{
 setOpen(false);
 
 
-          localStorage.setItem("jwt", data.data.message)
+          localStorage.setItem("jwt", data.message)
         //   localStorage.setItem("user", JSON.stringify(data.data.user.userId))
         //   localStorage.setItem("userName", JSON.stringify(data.data.user.userName))
         //   notify();

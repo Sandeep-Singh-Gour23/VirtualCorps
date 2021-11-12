@@ -1,6 +1,5 @@
 import React,{  useState } from 'react';
 // import ReactDOM from "react-dom";
-
 import "../../styles/form.css"
 import useCreateMemForm from './useCreateMemForm';
 import validate from './ValidateInfo'

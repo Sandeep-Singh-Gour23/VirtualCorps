@@ -7,25 +7,22 @@ import { useState } from 'react';
 import axios from 'axios'
 
 
-const AssignProj = () => {
+const AssignProj = (props) => {
 
-    // const [projectData, setProjData] = useState({
-    //     "empId": 3,
-    //     "fullName": "Nishi Patodi",
-    //     "projectName": "Instagram clone"
-    //   })
+    const [projectData, setProjData] = useState([])
 
-    //   const apiGet = () => {
-    //       fetch("http://localhost:8000/virtualcorp/createProject")
-    //       .then((response) => response.json)
-    //       .then((json) => {
-    //           setProjData(json)
-    //       })
-    //   }
 
-    //   useEffect(() =>{
+      useEffect(() =>{
+        apiGet()
+      }, [])
 
-    //   }, [])
+      const apiGet = () => {
+        fetch("http://localhost:8000/virtualcorp/createProject")
+        .then((response) => response.json)
+        .then((json) => {
+            setProjData(json)
+        })
+    }
     return (
         <>  
              <div className="task-nav">

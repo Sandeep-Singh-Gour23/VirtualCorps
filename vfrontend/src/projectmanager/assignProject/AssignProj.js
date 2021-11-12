@@ -13,17 +13,22 @@ const AssignProj = (props) => {
   const [ project, setProjects] = useState([])
 
   useEffect(() => {
-    getAllProject()
+    getAllProject();
   },[])
 
   const getAllProject = async () => {
       try {
         console.log("getting all the projects")
-        const response = await fetch("/getAllProjects",{method:'GET'})
-        console.log("response:", response )
+        const response = await fetch("/getAllProjects",{method:'GET',
+        headers:{
+          "Content-Type":"application/json",
+          "authorization":"bearer "+localStorage.getItem("jwt")
+        }
+      })
+        // console.log("response:", response )
         const data = await response.json();
         setProjects(data.data.NotAssignedProject)
-        console.log(data.data.NotAssignedProject)
+        // console.log(data)
       } catch (error) {
         console.log("Error: ", error)
       }
@@ -47,7 +52,11 @@ const AssignProj = (props) => {
            {
             project.map((value,index) => {
             return(
-               <Button props key={index} title={value.projectName}/>
+               <Button props key={index} title={value.projectName} 
+               description={value.description} 
+               subDescription={value.subDescription}
+                projectStatus={value.projectStatus}
+               />
             )})}
              </div>
              

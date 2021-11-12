@@ -107,7 +107,7 @@
   left: 25%;
   margin-top: 5%;
   padding: 1rem;
-  background-color: #d6e4f0;
+  background-color: rgb(214, 228, 240);
 }
 /*-------------------------------------Modal/card Close button----------------------------------*/
 .closeBtn {
