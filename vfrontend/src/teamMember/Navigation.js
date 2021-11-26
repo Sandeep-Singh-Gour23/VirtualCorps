@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState,useEffect } from 'react'
 import './memberStyle.css'
 import WorkTime from '../../src/Image/undraw_Work_time_re_hdyv.svg'
 import AccountCircleRoundedIcon from '@material-ui/icons/AccountCircleRounded';
@@ -13,8 +13,20 @@ import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import { Col } from 'rsuite'
 
 
+
 const Navigation = () => {
 
+    const getData = async () => {
+        try {
+            const res = await fetch('/')
+        } catch (error) {
+            
+        }
+    }
+
+    useEffect(() => {
+        getData();
+    }, [])
         return(
         <>
          <div className="top-nav">
@@ -31,7 +43,7 @@ const Navigation = () => {
                     <p className="profile-p">Profile</p>
                 </div>
                 <ul className="mem-ul">
-                    <li><PermIdentityRoundedIcon style={{fontSize:'2rem'}}/>Name </li>
+                    <li><PermIdentityRoundedIcon style={{fontSize:'2rem'}}/>Name</li>
                     <li><PhoneAndroidOutlinedIcon style={{fontSize:'2rem'}}/>Contact</li>
                     <li><AlternateEmailOutlinedIcon style={{fontSize:'2rem'}}/>Email</li>
                     <li><HomeOutlinedIcon style={{fontSize:'2rem'}}/>Address</li>

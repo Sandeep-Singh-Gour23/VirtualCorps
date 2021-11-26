@@ -3,6 +3,7 @@ import React,{  useState } from 'react';
 import "../../styles/form.css"
 import useCreateMemForm from './useCreateMemForm';
 import validate from './ValidateInfo'
+import axios from 'axios'
 
 
 const FormSubmit = ({submitForm}) => {
@@ -18,8 +19,8 @@ const FormSubmit = ({submitForm}) => {
       const PostData = async (e) => {
         e.preventDefault();
     
-        const { fullName, address, contactNumber, email, password } = values;
-    
+        const { fullName, address, contactNumber, email, password, role } = values;
+
         const res = await fetch("/signup", {
           method: "POST",
           headers:{
@@ -34,27 +35,27 @@ const FormSubmit = ({submitForm}) => {
         console.log(data);
     
         if (data.status === 404 || !data) {
-          window.alert("Registration Failed");
-          console.log("Registration Failed");
+          if(!fullName){
+            window.alert("Name required");
+          }
         } else {
-          window.alert("Registration Successful!!");
-          console.log("Registration Successful!!");
+          window.alert("Registration Successful!!");         
         }
       };
 
     console.log(role)
-    // console.log(values.fullName)
+    console.log(values.fullName)
     console.log(empTech)
     return(
         <> 
-             <div className="form-content-right">
-                 <form className='form' method="POST" noValidate>
-                    <input type="text"
-                        placeholder="Enter Your Full Name"
-                        className="form-input"
-                        name="fullName"
-                        value={values.fullName}
-                        onChange={handleChange}
+          <div className="form-content-right">
+              <form className='form' method="POST" noValidate>
+                <input type="text"
+                      placeholder="Enter Your Full Name"
+                      className="form-input"
+                      name="fullName"
+                      value={values.fullName}
+                      onChange={handleChange}
                     />
                     {errors.fullName && <p>{errors.fullName}</p>}
                     <br />
@@ -80,7 +81,7 @@ const FormSubmit = ({submitForm}) => {
                 {errors.address && <p>{errors.address}</p>}
                 <br />
 
-                <input type="number"
+                <input type="tel"
                    placeholder="Enter Your Contact Number"
                    name="contactNumber"  
                    className="form-input"
