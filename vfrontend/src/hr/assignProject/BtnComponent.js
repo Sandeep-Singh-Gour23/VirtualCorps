@@ -16,7 +16,8 @@ function Button(props){
         <div className="wrapper">
           <div class="btn">
            <p onClick={()=>setModalIsOpen(true)}>{props.title}</p>
-            <p className="status">Status: {status[Math.floor(Math.random() * status.length)]}</p>
+            {/* <p className="status">Status: {status[Math.floor(Math.random() * status.length)]}</p> */}
+            <p className="status">{props.projectStatus}</p>
             <span className="BorderTopBottom"></span>
             <span className="BorderLeftRight"></span>
           </div>
@@ -28,20 +29,18 @@ function Button(props){
             <h2 className="box-title">{props.title}</h2>
 
             <p className="des-title">Description-</p>
-            <h3 className="description head3">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</h3><br/>
+            <h3 className="description head3">{props.description}</h3><br/>
 
             <p className="des-title">Sub-description</p>
-            <h3 className="sub-description  head3">Lorem ipsum dolor sit amet consectetur adipisicing elit.
-             Aut, fugiat sequi esse ducimus dignissimos, dolor quis hic cum ea accusamus quaerat, accusantium incidunt.
-             Maxime repellendus incidunt neque minus dicta aperiam!</h3>
+            <h3 className="sub-description head3">{props.subDescription}</h3>
              
-            <Select 
+            {/* <Select 
               placeholder="Select Employee Id"
               className="drop-down2"
-            />
+            /> */}
             <Select
             className="drop-down2"
-            placeholder="Select Project Name" 
+            placeholder="Select Project Manager" 
             />
             <button className="button-1">Submit</button>
          </div>

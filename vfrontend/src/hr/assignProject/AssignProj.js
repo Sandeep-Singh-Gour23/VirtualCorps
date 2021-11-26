@@ -11,17 +11,32 @@ const AssignProj = (props) => {
 
     const [projectData, setProjData] = useState([])
 
-
       useEffect(() =>{
         apiGet()
       }, [])
 
-      const apiGet = () => {
-        fetch("http://localhost:8000/virtualcorp/createProject")
-        .then((response) => response.json)
-        .then((json) => {
-            setProjData(json)
+    //   const apiGet = () => {
+    //     fetch("http://localhost:8000/virtualcorp/createProject")
+    //     .then((response) => response.json)
+    //     .then((json) => {
+    //         setProjData(json)
+    //     })
+    // }
+
+    const apiGet = async () => {
+        try {
+            console.log("getting all the projects")
+        const response = await fetch("/getAllProjects",{method:'GET',
+        headers:{
+          "Content-Type":"application/json",
+          "authorization":"bearer "+localStorage.getItem("jwt")
+        }
         })
+        const data = await response.json();
+        setProjData(data.data.NotAssignedProject)
+       }catch (error) {
+            console.log("error: ", error);
+        }
     }
     return (
         <>  
@@ -30,13 +45,15 @@ const AssignProj = (props) => {
                 <Link to="/hr"><button type="button" class="btn d-icon"><DashboardIcon/> Dashboard </button></Link>
             </div>
             <div className="container">
-                <Button props title="Project 1" />  
-                <Button props title="Project 2" />
-                <Button props title="Project 3" />
-                <Button props title="Project 4" />
-                <Button props title="Project 5" />
-                <Button props title="Project 6" />
-                <Button props title="Project 7" />
+            {
+            projectData.map((value,index) => {
+            return(
+               <Button props key={index} title={value.projectName} 
+               description={value.description} 
+               subDescription={value.subDescription}
+                projectStatus={value.projectStatus}
+               />
+            )})}
             </div>   
              <span className="showMore">Show More</span> 
      </>        

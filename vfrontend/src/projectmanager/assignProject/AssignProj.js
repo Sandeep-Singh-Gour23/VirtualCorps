@@ -40,13 +40,7 @@ const AssignProj = (props) => {
                 <h2 className="headingTask"><img src={taskAssign} alt="logo" className="assign-image"/>Project Assignment</h2>
                 <Link to="/projectmanager"><button type="button" class="btn d-icon" className="dash-icon"><DashboardIcon/> Dashboard </button></Link>
             </div>
-            {/* <div className="container">
-                {projectData.map(project => (
-                <Button key={project.projectId} props title={project.projectName}/>  
-            ))} */}
 
-            {/* </div> 
-           */}
 
            <div className="container">
            {
