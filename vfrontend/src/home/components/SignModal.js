@@ -10,8 +10,10 @@ import CloseIcon from '@material-ui/icons/Close';
 import Typography from '@material-ui/core/Typography';
 import {Row,Col,DropdownButton,Dropdown} from 'react-bootstrap';
 import {Route ,useHistory} from 'react-router-dom';
-import Hrd from '../../hr/Hrd'
+import Hrd from '../../hr/Hrd';
+import Pd from '../../projectmanager/projectdetail/pd';
 import { Link } from '@material-ui/core';
+// import ReactSession from 'react-client-session';
 
 
 // import './SignModal.css';
@@ -90,7 +92,7 @@ fetch("/login", {
         console.log(data)
         
         if (data.error) {
-          // M.toast({ html: data.error, classes: "#c62828 red darken-3" })
+          //  M.toast({ html: data.error, classes: "#c62828 red darken-3" })
         }
         
 else{
@@ -104,6 +106,9 @@ setOpen(false);
           localStorage.setItem("jwt", data.message)
         //   localStorage.setItem("user", JSON.stringify(data.data.user.userId))
         //   localStorage.setItem("userName", JSON.stringify(data.data.user.userName))
+        // ReactSession.set("name",data.data.fullName );
+        
+
         //   notify();
         // console.log(data.data.role);
           if(data.data.role=='HR'){
@@ -179,8 +184,9 @@ if(data.data.role=='Project Manager'){
 
   return (
     <>
+    
     <div>
-      
+
       <Button style={{color:'white' , border:'1px solid white'}} onClick={handleClickOpen}>
         {/* <Button style={{color:'white' ,fontSize:'20px',position:'aboslute',}} onClick={handleClickOpen}></Button> */}Sign In
       </Button>
