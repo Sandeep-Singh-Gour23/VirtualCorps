@@ -25,7 +25,7 @@ const AssignProj = (props) => {
 
     const apiGet = async () => {
         try {
-            console.log("getting all the projects")
+            // console.log("getting all the projects")
         const response = await fetch("/getAllProjects",{method:'GET',
         headers:{
           "Content-Type":"application/json",

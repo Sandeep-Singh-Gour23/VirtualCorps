@@ -19,27 +19,38 @@ const FormSubmit = ({submitForm}) => {
       const PostData = async (e) => {
         e.preventDefault();
     
-        const { fullName, address, contactNumber, email, password, role } = values;
+        const { fullName, address, contactNumber, email, password } = values;
 
-        const res = await fetch("/signup", {
-          method: "POST",
-          headers:{
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            fullName, address, contactNumber, email, password, role, empTech
-          }),
-        });
-    
-        const data = await res.json();
-        console.log(data);
-    
-        if (data.status === 404 || !data) {
-          if(!fullName){
-            window.alert("Name required");
+        if(!values.fullName){
+          window.alert("Name is required!!");
+        }else if(!values.address){
+            window.alert("Address is required!!")
+        }else if(!values.contactNumber && values.contactNumber.length !== 10){
+            window.alert("Contact number required or invalid!!")
+        }else if(!values.email){
+            window.alert("Email is required!!")
+        }else if(!values.password || values.password.length <= 5){
+          window.alert("password is required or too short!!")
+        }else{
+          const res = await fetch("/signup", {
+            method: "POST",
+            headers:{
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              fullName, address, contactNumber, email, password, role, empTech
+            }),
+          });
+      
+          const data = await res.json();
+          console.log(data);
+  
+          if(!data.success){
+            window.alert(data.message);
           }
-        } else {
-          window.alert("Registration Successful!!");         
+          else {
+            window.alert("Registration Successful!!");         
+          }
         }
       };
 
