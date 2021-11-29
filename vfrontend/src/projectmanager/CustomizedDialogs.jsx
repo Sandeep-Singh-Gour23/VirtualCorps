@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React , { useState ,useEffect} from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -64,6 +64,38 @@ export default function CustomizedDialogs() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const[project,setproject] = useState([]);
+
+  const getProjects = async ()=>{
+      const response = await fetch('/getAllProjects',{
+
+        method : "GET",
+        headers:{
+          "Content-Type":"application/json",
+          "authorization":"bearer "+localStorage.getItem("jwt")
+        },
+
+      });
+    
+     const data = await response.json();
+     console.log(data.data.NotAssignedProject);
+    setproject(data.data.NotAssignedProject);
+  }
+  useEffect(()=>{
+    getProjects();
+  },[]);
+//    const data = await response.json();
+//    console.log(data.data.NotAssignedProject);
+//   setproject(data.data.NotAssignedProject);
+//   {this.state.data.map(currency => (
+//     <option key={data.data.id} value={currency}>
+//       {currency}
+//     </option>
+//   ))}
+// }
+
+
   const schedule =  async(e)  => {
 
     e.preventDefault();
@@ -100,9 +132,12 @@ export default function CustomizedDialogs() {
  
     
   };
-
+ 
+ 
   return (
+   
     <div>
+      
       {/* <Button  color="">
     
       </Button> */}
@@ -144,11 +179,23 @@ export default function CustomizedDialogs() {
         onChange = {(event)=>{
           setDrop(event.target.value);
         }}
-        style={{backgroundColor:"white"}}>
-  <option value="Team A">Team A</option>
-  <option value="Team B">Team B</option>
+        style={{backgroundColor:"white"}}
+      
+        >
+         
+          
+
+        {   
+      project.map((value,index)=> {
+        return   <option  key = {index}
+              id={value.projectName} value={value.projectName}>{value.projectName}</option>
+      
+     
+      }) }
+  {/* <option value="Team A">Team A</option> */}
+  {/* <option value="Team B">Team B</option>
   <option value="Team C">Team C</option>
-  <option value="Team D">Team D</option>
+  <option value="Team D">Team D</option> */}
 </select>
 
     </Col>
