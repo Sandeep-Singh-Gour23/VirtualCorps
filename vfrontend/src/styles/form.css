@@ -159,14 +159,14 @@
     font-size: 1rem;
     letter-spacing: 1%;
     outline: none;
-    color: #595959;
+    color: #595959 !important;
   }
   label{
     color:#fff;
     font-size:1rem;
   }
   Select{
-    color: black;
+    color: black !important;
     background: skyblue;
   }
   .form-input-btn {

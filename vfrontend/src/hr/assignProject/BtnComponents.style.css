@@ -147,18 +147,24 @@
   height: 100%;
 }
 /*--------------------------------------card drop-down-----------------------------------------*/
-.drop-down2 {
+.select-pm{
   position: relative;
-  width: 48%;
-  left: 25%;
+  font-size: 1rem;
   color: black;
-  top: 20px;
+  left: 25%;
+}
+.drop-down2 {
+  position:relative;
+  height:2rem;
+  width: 50%;
+  left:25%;
+  color: black;
   letter-spacing: 2px;
   margin-bottom: 10px;
 }
 /*-------------------------------------------description/Sub-description--------------------------------------------*/
 .head3 {
-  background-color: #fff;
+  /* background-color: #fff; */
   position: relative;
   left: 10%;
   color: black;

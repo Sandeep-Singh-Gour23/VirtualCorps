@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from "react"
 import Modal from "react-modal"
-import Select from "react-select"
 import './BtnComponents.style.css'
-
 
 function Button(props){
    const [modalIsOpen, setModalIsOpen] = useState(false)
-  //  const status =["assigned","pending","unassigned"];
-   const[projectManager, setProjectManager] = useState([])
 
   //fetching
+  
+  const [drop, setDrop] = useState()
+  const [projectManager, setProjectManager] = useState([])
+
     const getProjectManager = async () =>{ 
       try {
         const response = await fetch('/unassignedProjectManager',{
@@ -20,21 +20,46 @@ function Button(props){
           },
         })
         const data = await response.json();
-        console.log("Project Manager: ", data);      
+        // console.log("Project Manager: ", data.data);   
+        setProjectManager(data.data)
         } catch (error) {
           console.log("Error in get project manager: ", error);
         }  
     }
   
-    //posting project
-
-    // const assignProject = () => {
-    //   fetch('/assignProject')
-    // }
+    // posting project
+     const AssignProj = async(e) => {
+       e.preventDefault();
+       try {
+        console.log("assign proj called")
+        const res = await fetch('/assignProject',{
+         method : "POST",
+         headers:{
+           "Content-Type":"application/json",
+           "authorization":"bearer "+localStorage.getItem("jwt")
+         },
+         body: JSON.stringify({
+           "projectM_id":projectManager.empId,
+           "projectManager":projectManager.fullName,  
+           "title":props.title,       
+         })
+        })
+          const data = await res.json();
+        //  console.log(data)
+          if(!data){
+            window.alert("nothing happened");
+          }else{
+            window.alert("project assigned");
+          }
+       } catch (error) {
+         console.log("assigning project error: ", error)
+       }
+     }
 
     useEffect(() => {
       getProjectManager()
     }, [])
+    // console.log("project title selected:",props.description);
     return(
     <>
     <div className="body-bg">
@@ -48,7 +73,7 @@ function Button(props){
           </div>
       </div>
          
-         <Modal isOpen={modalIsOpen} onRequestClose={()=>setModalIsOpen(false)} shouldCloseOnOverlayClick={true} ariaHideApp={false} style={{overlay:{backgroundColor:'#868686'}}} >
+         <Modal isOpen={modalIsOpen} onRequestClose={()=>setModalIsOpen(false)} shouldCloseOnOverlayClick={true} ariaHideApp={false} style={{overlay:{backgroundColor:'none'}}} >
         <div className="box">
         <button className="closeBtn" onClick={() => setModalIsOpen(false)}>X</button>
             <h2 className="box-title">{props.title}</h2>
@@ -58,22 +83,27 @@ function Button(props){
 
             <p className="des-title">Sub-description</p>
             <h3 className="sub-description head3">{props.subDescription}</h3>
+            <br />
              
-            {/* <Select 
-              placeholder="Select Employee Id"
-              className="drop-down2"
-            /> */}
-            <Select
+            <p className="select-pm">Select Project Manager:</p>
+            <select
             className="drop-down2"
-            placeholder="Select Project Manager" 
             name="proejctManager"
-            options={projectManager.map((data) => {
-              return (
-                <option value="data.value">{data.setProjectManager}</option>
-              ) 
-            })}
-            />
-            <button className="button-1">Submit</button>
+            value={drop}
+            id="projectManager"
+            onChange = {(event) => {
+              setDrop(event.target.value);
+            }}
+            style={{backgroundColor:"white"}}
+            >
+            {   
+              projectManager.map((value,index)=> {
+                return <option key = {index}
+                 id={value.fullName} value={value.id}>{value.fullName} (Id-{value.empId})</option>
+              }) }
+            </select>
+            <br />
+            <button type="submit" className="button-1" onClick={AssignProj}>Assign</button>
          </div>
           </Modal> 
         </div>
