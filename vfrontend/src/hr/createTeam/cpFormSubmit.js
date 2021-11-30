@@ -1,14 +1,34 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
 import Select from "react-select";
 import "../../styles/form.css"
 import CreateProj from './CreateProj';
 import validate from './ValidateCreateProject.js'
 
-const cpFormSubmit = ({submitForm2}) => {
+const CpFormSubmit = ({submitForm2}) => {
     const { handleChange, handleSubmit2, values, errors, handleClick } = CreateProj(
         submitForm2,
         validate
       );
+
+      const [ProjName, setProjName] = useState([])
+      const [DropPName, setDropPName] = useState();
+
+      const getProjectName = async () =>{ 
+        try {
+          const response = await fetch('/getAllProjects',{
+            method : "GET",
+            headers:{
+              "Content-Type":"application/json",
+              "authorization":"bearer "+localStorage.getItem("jwt")
+            },
+          })
+          const data = await response.json();
+          console.log("Project Name: ", data.data.NotAssignedProject);   
+          setProjName(data.data.NotAssignedProject)
+          } catch (error) {
+            console.log("Error in get project manager: ", error);
+          }  
+      }
 
       const ProjectType = [
         {
@@ -29,115 +49,172 @@ const cpFormSubmit = ({submitForm2}) => {
         },
         ];
 
-    const ProjectManager = [
-        {   value:1,
-            label:"Nishi Patodi"
+    //get project manager
+    const [ProjManager, setProjManager] = useState([])
+    const [dropPM, setDropPM] = useState();
+
+    const getProjectManager = async () =>{ 
+        try {
+          const response = await fetch('/getAllProjectManager',{
+            method : "GET",
+            headers:{
+              "Content-Type":"application/json",
+              "authorization":"bearer "+localStorage.getItem("jwt")
+            },
+          })
+          const data = await response.json();
+        //   console.log("Project Manager: ", data.data);   
+          setProjManager(data.data)
+          } catch (error) {
+            console.log("Error in get project manager: ", error);
+          }  
+      }   
+
+
+
+    // get team leader
+    const [TeamL, setTeamLead] = useState([])
+    const [DropTL, setDropTL] = useState()
+    const getTeamLeader = async () =>{ 
+        try {
+          const response = await fetch('/getAllTLsTMs',{
+            method : "GET",
+            headers:{
+              "Content-Type":"application/json",
+              "authorization":"bearer "+localStorage.getItem("jwt")
+            },
+          })
+          const data = await response.json();
+        //   console.log("Team Leader: ", data.data);   
+          setTeamLead(data.data.allTeamLeaders)
+          } catch (error) {
+            console.log("Error in get Team Leader: ", error);
+          }  
+      }
+   // get team members
+      const [drop, setDrop] = useState()
+      const [TeamM, setTeamM] = useState([])
+
+   const getTeamMember = async () =>{ 
+    try {
+      const response = await fetch('/getAllTLsTMs',{
+        method : "GET",
+        headers:{
+          "Content-Type":"application/json",
+          "authorization":"bearer "+localStorage.getItem("jwt")
         },
-        {
-            value:2,
-            label:"Deshna Shrivastav"
-        },
-        {
-            value:3,
-            label:"Rohit Sharma"
-        } ];
-    const  TeamLeader = [
-        {
-            value:1,
-            label:"Anshika Sethiya"
-        },
-        {
-            value:2,
-            label:"Hardik Yadav"
-        },
-        {
-            value:3,
-            label:"Amisha Singh"
-        },
-        {
-            value:4,
-            label:"Ayush Gupta"
-        },
-        {
-            value:5,
-            label:"Hritik Jain"
-        }
-    ];
-    const TeamMember = [
-        {
-            value:1,
-            label:"Bhawna Sharma"
-        },
-        {
-            value:2,
-            label:"Muskan Rathod"
-        },
-        {
-            value:3,
-            label:"Aisha Panwar"
-        },
-        {
-            value:4,
-            label:"Samarth "
-        },
-        {
-            value:5,
-            label:"Darsh Patel"
-        }
-    ]
+      })
+      const data = await response.json();
+    //   console.log("Team Member: ", data.data.allTeamMembers);   
+      setTeamM(data.data.allTeamMembers)
+      } catch (error) {
+        console.log("Error in get team member: ", error);
+      }  
+  }
+
+  useEffect(() => {
+      getTeamMember();
+      getTeamLeader();
+      getProjectManager();
+      getProjectName();
+  }, [])
+
     return (
         <>
           <div className="form-content-right">
             <form onSubmit={handleSubmit2} className='form' noValidate>
-                <input type="text"
-                        placeholder="Enter Team Name"
-                        className="form-input"
-                        name="teamName"
-                        value={values.teamName}
-                        onChange={handleChange}
-                />
+            <p>Select Project Name: </p>
+                <select 
+                    className="drop-down"
+                    name="ProjValue"
+                    value={DropPName}
+                    style={{backgroundColor:"white"}}
+                    onChange = {(event) => {
+                    setDropPName(event.target.value);
+                 }}
+                >
+                {
+                        ProjName.map((values,index)=> {
+                        return <option key = {index}
+                        id={values.projectName} value={values.id}>{values.projectName}</option>
+                    })
+                    }
+                </select>
                      {errors.teamName && <p>{errors.teamName}</p>}
                      <br/>
-            
+                <p>Select Team Type:</p>
                 <Select
                     placeholder="Select Team Type"
                     className="drop-down"
                     name="projectValue"
                     value={values.setProjectValue}
+                    style={{backgroundColor:"white"}}
                     options={ProjectType}
                     onClick={(setProjectValue) => handleClick('tType', values)}  
                 /> 
                 {errors.projectValue && <p>{errors.projectValue}</p>}
                  <br />
-                <Select 
+                 <p>Select Project Manager: </p>
+                <select 
                     placeholder="Select Project Manager"
                     className="drop-down"
                     name="managerValue"
-                    value={values.setManagerValue}
-                    options={ProjectManager}
-                    onChange={()=>handleClick('projectM', values)}
-                /> 
+                    value={dropPM}
+                    style={{backgroundColor:"white"}}
+                    onChange = {(event) => {
+                    setDropPM(event.target.value);
+                 }}
+                >
+                {
+                        ProjManager.map((values,index)=> {
+                        return <option key = {index}
+                        id={values.fullName} value={values.id}>{values.fullName} (Id-{values.empId})</option>
+                    })
+                    }
+                </select> 
                 {errors.managerValue && <p>{errors.managerValue}</p>}
                     <br />
-                <Select 
+                <p>Select Team Leader:</p>    
+                <select 
                     placeholder="Select Team Leader"
                     className="drop-down"
-                    name="leaderValue"
-                    value={values.setLeaderValue}
-                    options={TeamLeader}
-                    onClick={() => handleClick('teamL', values)}
-                /> 
+                    style={{backgroundColor:"white"}}
+                    name="teamLeader"
+                    value={DropTL}
+                    onChange = {(event) => {
+                    setDropTL(event.target.value);
+                    }}
+                  >
+                    {
+                        TeamL.map((values,index)=> {
+                        return <option key = {index}
+                        id={values.fullName} value={values.id}>{values.fullName} (Id-{values.empId})</option>
+                    })
+                    }
+                </select> 
+
                 {errors.leaderValue && <p>{errors.leaderValue}</p>}
-                    <br />
-                <Select 
+                <br />
+
+                <p>Select Team Member:</p>    
+                <select 
                     placeholder="Select Team Member"
+                    style={{backgroundColor:"white"}}
                     className="drop-down"
-                    name="memberValue"
+                    name="teamMember"
                     isMulti={true}
-                    value={values.setMemberValue}
-                    options={TeamMember}
-                    onClick={(setMemberValue) => handleClick('teamM',values)}
-                /> 
+                    value={drop}
+                    onChange = {(event) => {
+                    setDrop(event.target.value);
+                    }}
+                 >
+                   {
+                        TeamM.map((values,index)=> {
+                        return <option key = {index}
+                        id={values.fullName} value={values.id}>{values.fullName} (Id-{values.empId})</option>
+                    })
+                    }
+                 </select>
                 {errors.memberValue && <p>{errors.memberValue}</p>}
                 
                  <button type="submit" className="form-input-btn">Submit</button>
@@ -147,4 +224,4 @@ const cpFormSubmit = ({submitForm2}) => {
     )
 }
 
-export default cpFormSubmit
+export default CpFormSubmit

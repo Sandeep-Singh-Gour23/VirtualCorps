@@ -81,6 +81,7 @@ export default function CustomizedDialogs() {
      const data = await response.json();
      console.log(data.data.NotAssignedProject);
     setproject(data.data.NotAssignedProject);
+    // console.log("set project: ", setproject);
   }
   useEffect(()=>{
     getProjects();
@@ -189,8 +190,6 @@ export default function CustomizedDialogs() {
       project.map((value,index)=> {
         return   <option  key = {index}
               id={value.projectName} value={value.projectName}>{value.projectName}</option>
-      
-     
       }) }
   {/* <option value="Team A">Team A</option> */}
   {/* <option value="Team B">Team B</option>

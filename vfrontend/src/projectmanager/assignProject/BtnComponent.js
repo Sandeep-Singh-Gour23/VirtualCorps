@@ -8,7 +8,7 @@ function Button(props){
 
   // //fetching
    const [ teamLead, setTeamLead ] = useState([])
-
+   const [drop, setDrop] = useState()
    useEffect(() => {
     getAllLeader();
    },[])
@@ -22,11 +22,11 @@ function Button(props){
         "authorization":"bearer "+localStorage.getItem("jwt")
       }
       })
-      console.log("response", res)
+      // console.log("response", res)
       const data = await res.json()
       // console.log(data)
       setTeamLead(data.data.allTeamLeaders)
-      console.log(data)
+      // console.log(data)
     } catch (error) {
       console.log("Error: ", error)
     }
@@ -37,7 +37,7 @@ function Button(props){
           <div className="wrapper">
               <div class="btn">
                   <p onClick={()=>setModalIsOpen(true)}> {props.title}</p>
-                   <p className="status">Not assigned</p>
+                   {/* <p className="status">Not assigned</p> */}
                       <span className="BorderTopBottom"></span>
                       <span className="BorderLeftRight"></span>
               </div>
@@ -59,7 +59,7 @@ function Button(props){
             <h3 className="sub-description head3">{props.subDescription}
             </h3>
              
-            <Select 
+            {/* <Select 
               placeholder="select Team Leader"
               className="drop-down2">
               {
@@ -69,12 +69,26 @@ function Button(props){
                   </option>
                 }
                 )}
-              </Select>
-
-            <Select
+              </Select> */}
+            <br />  
+            <p className="select-pm">Select Team Leader:</p>
+            <select
             className="drop-down2"
-            placeholder="Select Project Name" 
-            />
+            name="teamLead"
+            value={drop}
+            id="teamLead"
+            onChange = {(event) => {
+              setDrop(event.target.value);
+            }}
+            style={{backgroundColor:"white"}}
+            >
+            {   
+              teamLead.map((value,index)=> {
+                return <option key = {index}
+                 id={value.fullName} value={value.id}>{value.fullName}  {value.empId}</option>
+              }) }
+            </select>
+              <br />
             <button className="button-1">Assign</button>
          </div>
           </Modal> 

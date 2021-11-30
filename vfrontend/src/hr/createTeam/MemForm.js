@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import FormSignUp2 from './cpFormSubmit';
+import FormSignUp2 from './CpFormSubmit';
 import FormSuccess from '../createMember/FormSuccess';
 import { Link } from 'react-router-dom'
 import "../../styles/form.css";
