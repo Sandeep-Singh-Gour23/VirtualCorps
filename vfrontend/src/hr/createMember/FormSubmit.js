@@ -116,7 +116,7 @@ const FormSubmit = ({submitForm}) => {
                 <select name="role"
                     value ={role}
                     onChange = {(event)=>{
-                    setRole(event.target.value);
+                       setRole(event.target.value);
                         }}
                     className="drop-down"
                     style={{backgroundColor:"white"}}>

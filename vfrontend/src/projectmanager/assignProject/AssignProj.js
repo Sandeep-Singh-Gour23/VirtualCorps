@@ -19,21 +19,20 @@ const AssignProj = (props) => {
   const getAllProject = async () => {
       try {
         console.log("getting all the projects")
-        const response = await fetch("/getAllProjects",{method:'GET',
+        const response = await fetch("/getPMProjects",{method:'GET',
         headers:{
           "Content-Type":"application/json",
           "authorization":"bearer "+localStorage.getItem("jwt")
         }
       })
-        // console.log("response:", response )
+        console.log("response:", response )
         const data = await response.json();
-        setProjects(data.data.NotAssignedProject)
-        // console.log(data)
+        setProjects(data.data)
+        console.log(data)
       } catch (error) {
         console.log("Error: ", error)
       }
-  }
-      
+  }    
     return (
         <>  
              <div className="task-nav">

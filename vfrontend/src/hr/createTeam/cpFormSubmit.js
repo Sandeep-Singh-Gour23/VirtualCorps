@@ -23,7 +23,7 @@ const CpFormSubmit = ({submitForm2}) => {
             },
           })
           const data = await response.json();
-          console.log("Project Name: ", data.data.NotAssignedProject);   
+         // console.log("Project Name: ", data.data.NotAssignedProject);   
           setProjName(data.data.NotAssignedProject)
           } catch (error) {
             console.log("Error in get project manager: ", error);
