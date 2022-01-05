@@ -186,15 +186,15 @@ export default function CustomizedDialogs() {
          
           
 
-        {   
+        {/* {   
       project.map((value,index)=> {
         return   <option  key = {index}
               id={value.projectName} value={value.projectName}>{value.projectName}</option>
-      }) }
-  {/* <option value="Team A">Team A</option> */}
-  {/* <option value="Team B">Team B</option>
+      }) } */}
+  <option value="Team A">Team A</option>
+  <option value="Team B">Team B</option>
   <option value="Team C">Team C</option>
-  <option value="Team D">Team D</option> */}
+  <option value="Team D">Team D</option>
 </select>
 
     </Col>
