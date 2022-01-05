@@ -108,13 +108,13 @@ const Pmd = () => {
   <div class="card-deck">
   
     
-     <div class="card shadow p-3 mb-5 bg-white rounded">
+     {/* <div class="card shadow p-3 mb-5 bg-white rounded">
     <img class="card-img-top" src={pdetail} alt="Card image cap"/>
     <div class="card-body">
       <p class="card-text"><center><button type="button" class="btn btn-dark">View Project Detail</button></center></p>
     </div>
 
-  </div>
+  </div> */}
   <div class="card shadow p-3 mb-5 bg-white rounded">
     <img class="card-img-top" src={assign}  height = "230px" alt="Card image cap"/>
     <div class="card-body">
@@ -142,7 +142,9 @@ const Pmd = () => {
     <div class="card shadow p-3 mb-5 bg-white rounded">
     <img class="card-img-top" src={meet} height = "230px" alt="Card image cap"/>
     <div class="card-body">
-    <a href="https://react-chatapp-frontend.herokuapp.com/">  <p class="card-text"><center><button type="button" class="btn btn-dark">Start Meet</button></center></p></a>
+    {/* <a href="https://react-chatapp-frontend.herokuapp.com/">  <p class="card-text"><center><button type="button" class="btn btn-dark">Start Meet</button></center></p></a> */}
+    <a href="https://meet.google.com/">  <p class="card-text"><center><button type="button" class="btn btn-dark">Start Meet</button></center></p></a>
+   
     </div>
 
 

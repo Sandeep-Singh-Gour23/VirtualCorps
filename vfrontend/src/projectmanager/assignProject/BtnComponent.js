@@ -89,7 +89,10 @@ function Button(props){
               }) }
             </select>
               <br />
-            <button className="button-1">Assign</button>
+            <button className="button-1" 
+            // onClick={window.alert("Project Assignment Successfull!")}
+            >Assign</button>
+            {/* <button onClick={window.alert("Project Assignment Successfull!")}>Assign</button> */}
          </div>
           </Modal> 
           

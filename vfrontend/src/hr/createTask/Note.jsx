@@ -25,7 +25,7 @@ const Note = (props) => {
         <p> <FiberManualRecordIcon  color="secondary"/>{props.status} </p>    
         </Col>
         <Col  lg={5} sm={5} sm={5} xs={5}>
-        <Button variant="contained" color="dark" style ={{backgroundColor:'#4D5EAE',color:'white'}} size="small">Detail</Button>
+        {/* <Button variant="contained" color="dark" style ={{backgroundColor:'#4D5EAE',color:'white'}} size="small">Detail</Button> */}
         </Col>
         {/* <button className = "text-right"  onClick={del}>< DeleteOutlineIcon/></button> */}
         <Col lg={2} sm={2} sm={2} xs={2}>
